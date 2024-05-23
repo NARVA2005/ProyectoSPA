@@ -27,74 +27,82 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../../../index.php">                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">SPA<sup></sup></div>
-            </a>
+<!-- Sidebar - Brand -->
+<a class="sidebar-brand d-flex align-items-center justify-content-center" href="../../../index.php">
+    <div class="sidebar-brand-icon rotate-n-15">
+        <i class="fas fa-laugh-wink"></i>
+    </div>
+    <div class="sidebar-brand-text mx-3">SPA<sup></sup></div>
+</a>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
+<!-- Divider -->
+<hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Inicio</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Citas
-            </div>
-
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item active">
-                <a class="nav-link" href="citasPendientes.php">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-ban" viewBox="0 0 16 16">
-                        <path d="M15 8a6.97 6.97 0 0 0-1.71-4.584l-9.874 9.875A7 7 0 0 0 15 8M2.71 12.584l9.874-9.875a7 7 0 0 0-9.874 9.874ZM16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0"/>
-                      </svg>
-                    <span>Citas pendientes</span></a>
-            </li>
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-           General
-            </div>
-         
-           
-            <li class="nav-item active">
-                <a class="nav-link" href="citasRealizadas.php">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+  <!-- Nav Item - Dashboard -->
+  <li class="nav-item active">
+    <a class="nav-link" href="index.php">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+  <path d="M8 .5a1.5 1.5 0 0 1 1.06.44l6 6a1.5 1.5 0 0 1-2.12 2.12L8 2.62l-5.94 5.94a1.5 1.5 0 0 1-2.12-2.12l6-6A1.5 1.5 0 0 1 8 .5zm6 7.5v6a1.5 1.5 0 0 1-1.5 1.5H11v-5H5v5H3.5A1.5 1.5 0 0 1 2 14V8a1.5 1.5 0 1 1 3 0v5h6V8a1.5 1.5 0 1 1 3 0z"/>
 </svg>
-                    <span>Citas realizadas</span></a>
+        <span>Inicio</span></a>
+</li>
+
+<!-- Divider -->
+<hr class="sidebar-divider">
+
+<!-- Heading -->
+<div class="sidebar-heading">
+    General
+</div>
+
+
+<!-- Nav Item - Utilities Collapse Menu -->
+<li class="nav-item active">
+                <a class="nav-link" href="buscarCita.php">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-calendar-check" viewBox="0 0 16 16">
+  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1zm11.854 3.646a.5.5 0 1 1 .707.708l-4 4a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L9 11.293l3.646-3.647z"/>
+</svg>
+
+                    <span>Consultar citas</span></a>
+            </li>
+        
+                  <li class="nav-item active">
+                <a class="nav-link" href="generarFactura.php">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+  <path d="M4 3a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1h2a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h2V3z"/>
+  <path d="M4 4v8h8V4H4zm1 1h6v6H5V5z"/>
+</svg>
+
+                    <span>Hacer factura</span></a>
             </li>
         
 
+            <li class="nav-item active">
+                <a class="nav-link" href="crearCliente.php">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
+  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a5 5 0 0 0-4.546 2.916A7.487 7.487 0 0 1 8 15c1.658 0 3.182-.526 4.546-1.414A5 5 0 0 0 8 9zm4.5-2a.5.5 0 0 1 .5.5V8h1.5a.5.5 0 0 1 0 1H13v1.5a.5.5 0 0 1-1 0V9H10.5a.5.5 0 0 1 0-1H12V6.5a.5.5 0 0 1 .5-.5z"/>
+</svg>
+
+                    <span>Gestionar cliente</span></a>
+            </li>
         
 
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
 
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
 
-           
-        </ul>
-        <!-- End of Sidebar -->
+
+
+
+<!-- Divider -->
+<hr class="sidebar-divider d-none d-md-block">
+
+<!-- Sidebar Toggler (Sidebar) -->
+<div class="text-center d-none d-md-inline">
+    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+</div>
+
+</ul>
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -161,7 +169,7 @@
                 <div class="small text-gray-500">Para citas, llama al:</div>
                 <span class="font-weight-bold">3007269738</span>
             </div>
-        </a>
+        </a>    
 <li class="nav-item dropdown no-arrow mx-1">
     <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -273,15 +281,17 @@
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
-                        <li class="nav-item dropdown no-arrow">
-                          
+                            <!-- Nav Item - User Information -->
+                    <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="NombreSesionPaciente">Aca va el nombre de la persona</span>                                <img class="img-profile rounded-circle"
+                                    src="../img/undraw_profile.svg">
+                            </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="datosPersonales.html">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Datos personales
-                                </a>
+                             
                             
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
@@ -290,7 +300,6 @@
                                 </a>
                             </div>
                         </li>
-
                     </ul>
 
                 </nav>
@@ -298,51 +307,50 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Información</h1>
-                    <p class="mb-4">Estos datos son tomados, por las citas  que tiene en el sistema, si no le aparecen campos es por que no tiene citas realizadas.</p>
-                    <div class="input-group mb-2">
-            <input type="number" class="form-control" placeholder="Ingrese su cédula" aria-label="Ingrese su cédula" aria-describedby="button-addon2" style="max-width: 200px;">
+    <h1 class="h3 mb-2 text-gray-800">Información</h1>
+    <p class="mb-4">Estos datos son tomados de las citas pendientes programadas con el doctor.</p>
+        <div class="input-group mb-2">
+            <input type="number" class="form-control" placeholder="Ingrese la cédula" aria-label="Ingrese su cédula" aria-describedby="button-addon2" style="max-width: 200px;">
             <div class="input-group-append">
                 <button class="btn btn-success" type="button" id="button-addon2">Buscar</button>
             </div>
         </div>
-                    <!-- DataTales Example -->
-                   <!-- DataTales Example -->
-                   <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Fecha</th>
-                                            <th>Duracion</th>
-                                            <th>Identificacion</th>
-                                            <th>Terapeuta</th>
-                                          
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                        <th>Fecha</th>
-                                            <th>Duracion</th>
-                                            <th>Identificacion</th>
-                                            <th>Terapeuta</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Citas pendientes por el centro médico Lourdes</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Estado</th>
+                            <th>Cédula Paciente</th>
+                            <th>Cédula Médico</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>ID</th>
+                            <th>Fecha</th>
+                            <th>Hora</th>
+                            <th>Estado</th>
+                            <th>Cédula Paciente</th>
+                            <th>Cédula Médico</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <!-- Aquí se insertarán las citas pendientes -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
 
-                </div>
                 <!-- /.container-fluid -->
 
             </div>
@@ -352,7 +360,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>ADSO &copy; Centro de tecnologias agroindustriales</span>
+                        <span>SPA &copy; ADSO</span>
                     </div>
                 </div>
             </footer>
@@ -394,18 +402,20 @@
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
+    <script src="../js/LoginNombrePersona.js"></script>
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="../js/demo/datatables-demo.js"></script>
+    <script src="../js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
     <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="../js/demo/datatables-medicamentosPendientes.js"></script>
-    <script src="../js/LoginNombrePersona.js"></script>
+    <script src="../js/demo/datatables-demo.js"></script>
+
+
 </body>
 
 </html>

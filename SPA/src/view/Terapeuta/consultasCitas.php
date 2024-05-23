@@ -31,8 +31,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../../../index.php">                <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">SPA<sup></sup></div>
@@ -41,8 +40,8 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-              <!-- Nav Item - Dashboard -->
-              <li class="nav-item active">
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
                 <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Inicio</span></a>
@@ -56,21 +55,13 @@
                 Citas
             </div>
 
-            <li class="nav-item active">
-                <a class="nav-link" href="citasProgramadas.php">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bag-heart" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0M14 14V5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1M8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132"/>
-                       
-                    </svg>
-                    <span>Programar cita</span></a>
-            </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item active">
                 <a class="nav-link" href="citasPendientes.php">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-</svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-ban" viewBox="0 0 16 16">
+                        <path d="M15 8a6.97 6.97 0 0 0-1.71-4.584l-9.874 9.875A7 7 0 0 0 15 8M2.71 12.584l9.874-9.875a7 7 0 0 0-9.874 9.874ZM16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0"/>
+                      </svg>
                     <span>Citas pendientes</span></a>
             </li>
             <!-- Divider -->
@@ -80,33 +71,18 @@
             <div class="sidebar-heading">
            General
             </div>
-            <li class="nav-item active">
-                <a class="nav-link" href="datosPersonales.php">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-fingerprint" viewBox="0 0 16 16">
-                        <path d="M8.06 6.5a.5.5 0 0 1 .5.5v.776a11.5 11.5 0 0 1-.552 3.519l-1.331 4.14a.5.5 0 0 1-.952-.305l1.33-4.141a10.5 10.5 0 0 0 .504-3.213V7a.5.5 0 0 1 .5-.5Z"/>
-                        <path d="M6.06 7a2 2 0 1 1 4 0 .5.5 0 1 1-1 0 1 1 0 1 0-2 0v.332q0 .613-.066 1.221A.5.5 0 0 1 6 8.447q.06-.555.06-1.115zm3.509 1a.5.5 0 0 1 .487.513 11.5 11.5 0 0 1-.587 3.339l-1.266 3.8a.5.5 0 0 1-.949-.317l1.267-3.8a10.5 10.5 0 0 0 .535-3.048A.5.5 0 0 1 9.569 8m-3.356 2.115a.5.5 0 0 1 .33.626L5.24 14.939a.5.5 0 1 1-.955-.296l1.303-4.199a.5.5 0 0 1 .625-.329"/>
-                        <path d="M4.759 5.833A3.501 3.501 0 0 1 11.559 7a.5.5 0 0 1-1 0 2.5 2.5 0 0 0-4.857-.833.5.5 0 1 1-.943-.334m.3 1.67a.5.5 0 0 1 .449.546 10.7 10.7 0 0 1-.4 2.031l-1.222 4.072a.5.5 0 1 1-.958-.287L4.15 9.793a9.7 9.7 0 0 0 .363-1.842.5.5 0 0 1 .546-.449Zm6 .647a.5.5 0 0 1 .5.5c0 1.28-.213 2.552-.632 3.762l-1.09 3.145a.5.5 0 0 1-.944-.327l1.089-3.145c.382-1.105.578-2.266.578-3.435a.5.5 0 0 1 .5-.5Z"/>
-                        <path d="M3.902 4.222a5 5 0 0 1 5.202-2.113.5.5 0 0 1-.208.979 4 4 0 0 0-4.163 1.69.5.5 0 0 1-.831-.556m6.72-.955a.5.5 0 0 1 .705-.052A4.99 4.99 0 0 1 13.059 7v1.5a.5.5 0 1 1-1 0V7a3.99 3.99 0 0 0-1.386-3.028.5.5 0 0 1-.051-.705M3.68 5.842a.5.5 0 0 1 .422.568q-.044.289-.044.59c0 .71-.1 1.417-.298 2.1l-1.14 3.923a.5.5 0 1 1-.96-.279L2.8 8.821A6.5 6.5 0 0 0 3.058 7q0-.375.054-.736a.5.5 0 0 1 .568-.422m8.882 3.66a.5.5 0 0 1 .456.54c-.084 1-.298 1.986-.64 2.934l-.744 2.068a.5.5 0 0 1-.941-.338l.745-2.07a10.5 10.5 0 0 0 .584-2.678.5.5 0 0 1 .54-.456"/>
-                        <path d="M4.81 1.37A6.5 6.5 0 0 1 14.56 7a.5.5 0 1 1-1 0 5.5 5.5 0 0 0-8.25-4.765.5.5 0 0 1-.5-.865m-.89 1.257a.5.5 0 0 1 .04.706A5.48 5.48 0 0 0 2.56 7a.5.5 0 0 1-1 0c0-1.664.626-3.184 1.655-4.333a.5.5 0 0 1 .706-.04ZM1.915 8.02a.5.5 0 0 1 .346.616l-.779 2.767a.5.5 0 1 1-.962-.27l.778-2.767a.5.5 0 0 1 .617-.346m12.15.481a.5.5 0 0 1 .49.51c-.03 1.499-.161 3.025-.727 4.533l-.07.187a.5.5 0 0 1-.936-.351l.07-.187c.506-1.35.634-2.74.663-4.202a.5.5 0 0 1 .51-.49"/>
-                      </svg>
-                    <span>Datos personales</span></a>
-            </li>
-       
+         
+           
             <li class="nav-item active">
                 <a class="nav-link" href="citasRealizadas.php">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
   <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
 </svg>
                     <span>Citas realizadas</span></a>
             </li>
         
 
-
-      
-
-           
-
-          
+        
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -116,6 +92,7 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
+           
         </ul>
         <!-- End of Sidebar -->
 
@@ -174,16 +151,130 @@
                             </div>
                         </li>
 
+                        <a class="dropdown-item d-flex align-items-center" href="tel:tu-numero-de-telefono">
+            <div class="mr-3">
+                <div class="icon-circle bg-primary">
+                    <i class="fas fa-phone text-white"></i>
+                </div>
+            </div>
+            <div>
+                <div class="small text-gray-500">Para citas, llama al:</div>
+                <span class="font-weight-bold">3007269738</span>
+            </div>
+        </a>    
+<li class="nav-item dropdown no-arrow mx-1">
+    <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-bell fa-fw"></i>
+        <!-- Counter - Alerts -->
+        <span class="badge badge-danger badge-counter">3+</span>
+    </a>
+    <!-- Dropdown - Alerts -->
+    <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+        aria-labelledby="alertsDropdown">
+        <h6 class="dropdown-header">
+            Alertas del SPA
+        </h6>
+        <a class="dropdown-item d-flex align-items-center" href="#">
+            <div class="mr-3">
+                <div class="icon-circle bg-primary">
+                    <i class="fas fa-file-alt text-white"></i>
+                </div>
+            </div>
+            <div>
+                <div class="small text-gray-500">Mayo 20, 2024</div>
+                <span class="font-weight-bold">Nuevo tratamiento facial disponible</span>
+            </div>
+        </a>
+        <a class="dropdown-item d-flex align-items-center" href="#">
+            <div class="mr-3">
+                <div class="icon-circle bg-success">
+                    <i class="fas fa-donate text-white"></i>
+                </div>
+            </div>
+            <div>
+                <div class="small text-gray-500">Mayo 18, 2024</div>
+                ¡Reserva tu masaje relajante con un 20% de descuento!
+            </div>
+        </a>
+        <a class="dropdown-item d-flex align-items-center" href="#">
+            <div class="mr-3">
+                <div class="icon-circle bg-warning">
+                    <i class="fas fa-exclamation-triangle text-white"></i>
+                </div>
+            </div>
+            <div>
+                <div class="small text-gray-500">Mayo 15, 2024</div>
+                Avísanos si necesitas cambiar tu cita con 24 horas de anticipación.
+            </div>
+        </a>
+        <a class="dropdown-item text-center small text-gray-500" href="#">No hay más alertas</a>
+    </div>
+</li>
+
+<li class="nav-item dropdown no-arrow mx-1">
+    <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-envelope fa-fw"></i>
+        <!-- Counter - Messages -->
+        <span class="badge badge-danger badge-counter">7</span>
+    </a>
+    <!-- Dropdown - Messages -->
+    <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+        aria-labelledby="messagesDropdown">
+        <h6 class="dropdown-header">
+            Mensajes del SPA
+        </h6>
+        <a class="dropdown-item d-flex align-items-center" href="#">
+            <div class="dropdown-list-image mr-3">
+                <img class="rounded-circle" src="img/undraw_profile_1.svg" alt="...">
+                <div class="status-indicator bg-success"></div>
+            </div>
+            <div class="font-weight-bold">
+                <div class="text-truncate">¡Hola! Quisiera saber más sobre los tratamientos disponibles.</div>
+                <div class="small text-gray-500">Emily Fowler · 58m</div>
+            </div>
+        </a>
+        <a class="dropdown-item d-flex align-items-center" href="#">
+            <div class="dropdown-list-image mr-3">
+                <img class="rounded-circle" src="img/undraw_profile_2.svg" alt="...">
+                <div class="status-indicator"></div>
+            </div>
+            <div>
+                <div class="text-truncate">¿Puedo cambiar mi cita para el próximo martes?</div>
+                <div class="small text-gray-500">Jae Chun · 1d</div>
+            </div>
+        </a>
+        <a class="dropdown-item d-flex align-items-center" href="#">
+            <div class="dropdown-list-image mr-3">
+                <img class="rounded-circle" src="img/undraw_profile_3.svg" alt="...">
+                <div class="status-indicator bg-warning"></div>
+            </div>
+            <div>
+                <div class="text-truncate">El masaje de la semana pasada fue increíble, ¡gracias!</div>
+                <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+            </div>
+        </a>
+        <a class="dropdown-item d-flex align-items-center" href="#">
+            <div class="dropdown-list-image mr-3">
+                <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="...">
+                <div class="status-indicator bg-success"></div>
+            </div>
+            <div>
+                <div class="text-truncate">¿Tienen algún paquete especial para parejas?</div>
+                <div class="small text-gray-500">Alex Johnson · 2w</div>
+            </div>
+        </a>
+        <a class="dropdown-item text-center small text-gray-500" href="#">No hay más mensajes</a>
+    </div>
+</li>
+
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small" id="NombreSesionPaciente">Aca va el nombre de la persona</span>                                <img class="img-profile rounded-circle"
-                                    src="../img/undraw_profile.svg">
-                            </a>
+                          
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
@@ -209,77 +300,49 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Hacer cita</h1>
-
-                    <div class="row">
-
-                        <div class="col-lg-6">
-
-                            <!-- Circle Buttons -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Programa tu cita</h6>
-                                </div>
-                                <div class="card-body bg-light text-dark">
-                                    <form action="#" method="POST">
-                                        <div class="form-group">
-                                            <label for="nombre">Fecha de la cita:</label>
-                                            <input type="date" id="fechaCita" name="nombre" required class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email">Hora de la cita:</label>
-                                            <input type="time" id="horaCita" name="email" required class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fecha">Cédula:</label>
-                                            <input type="number" id="cedulaPaciente" name="fecha" required class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="">Especialidad:</label>
-                                            <select name="especialidad" id="selectEspecialidad" class="form-control">
-                                                <!-- Opciones del select -->
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="">Terapeuta:</label>
-                                            <select name="terapeuta" id="selectTerapeuta" class="form-control">
-                                                <!-- Opciones del select -->
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="button" class="btn btn-primary" onclick="funcion_gubuttonrdbuttonrCita()">Agendar cita</button>
-                                        </div>
-                                    </form>
-                                </div>
-                                
-                            </div>
-
-                        
-
+                    <h1 class="h3 mb-2 text-gray-800">Información</h1>
+                    <p class="mb-4">Estos datos son tomados, por las citas pendientes que tiene programadas con el terapeuta, si no le aparecen campos es por que no tiene citas programadas pendientes.</p>
+                    <div class="input-group mb-2">
+            <input type="number" class="form-control" placeholder="Ingrese su cédula" aria-label="Ingrese su cédula" aria-describedby="button-addon2" style="max-width: 200px;">
+            <div class="input-group-append">
+                <button class="btn btn-success" type="button" id="button-addon2">Buscar</button>
+            </div>
+        </div>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Citas pendientes</h6>
                         </div>
-
-                        <div class="col-lg-6">
-
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Informacion importante!!</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p>Recuerda que la cita son programadas a tus terapeutas de preferencia, tomando asi en cuenta que todo lo que hagas quedara a la espera 
-                                        de la persona encargada, tomando en cuenta esto, su cita quedara en pendiente, cuando sea aceptada, le llegara al correo registrado en la base de datos su cita en proceso.
-                                    </p>
-                                    <a href="#" id="EnviarMensajeLeido" class="btn btn-primary btn-icon-split">
-                                        <span class="icon text-white-50">
-                                            <i class="fas fa-flag"></i>
-                                        </span>
-                                        <span class="text" id="Notificacion">Leído correctamente</span>
-                                    </a>
-                                    <div class="my-2"></div>
-                                </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                        <th>id de la cita</th>
+                        <th>Fecha de la cita</th>
+                        <th>Hora de la cita</th>
+                        <th>Estado de la cita</th>
+                        <th>Cedula del paciente</th>
+                        <th>Cedula del medico</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                        <th>id de la cita</th>
+    <th>Fecha de la cita</th>
+    <th>Hora de la cita</th>
+    <th>Estado de la cita</th>
+    <th>Cedula del paciente</th>
+                                            <th>Cedula del medico</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                     
+                                      
+                                    </tbody>
+                                </table>
                             </div>
-
                         </div>
-
                     </div>
 
                 </div>
@@ -330,18 +393,24 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
+    <script src="../js/LoginNombrePersona.js"></script>
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="../js/sb-admin-2.min.js"></script>
-    <script src="../js/demo/ProgramarCita.js"></script>
-    <script src="../js/LoginNombrePersona.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="../js/demo/datatables-demo.js"></script>
+
+
 </body>
 
 </html>
