@@ -12,7 +12,7 @@ document.getElementById("btnIniciarSesion").addEventListener('click', () => {
             Contra: contra
         }
 
-        fetch("../view/validacionesLogin.php", {
+        fetch("../controller/login/validacionesLogin.php", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json' // Tipo de contenido

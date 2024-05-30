@@ -16,9 +16,11 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
 
     <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 
 </head>
 
@@ -302,38 +304,35 @@
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Información</h1>
                     <p class="mb-4">Estos datos son tomados, por las citas  que tiene en el sistema, si no le aparecen campos es por que no tiene citas realizadas.</p>
+                            <!-- MENSAJE DE ALERTA -->
+                            <div id="mensajeAlerta" class="contenedorAlerta">
+
+</div>      
                     <div class="input-group mb-2">
-            <input type="number" class="form-control" placeholder="Ingrese su cédula" aria-label="Ingrese su cédula" aria-describedby="button-addon2" style="max-width: 200px;">
+            <input type="number" class="form-control" placeholder="Ingrese su cédula" aria-label="Ingrese su cédula" aria-describedby="button-addon2" style="max-width: 200px;"  name="identificacionCliente" id="identificacionCliente">
             <div class="input-group-append">
-                <button class="btn btn-success" type="button" id="button-addon2">Buscar</button>
+                <button class="btn btn-success" type="button" id="BuscarCliente">Buscar</button>
             </div>
         </div>
                     <!-- DataTales Example -->
                    <!-- DataTales Example -->
                    <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Citas realizadas por el SPA</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered text-center" id="miTabla" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th>Fecha</th>
                                             <th>Duracion</th>
                                             <th>Identificacion</th>
                                             <th>Terapeuta</th>
-                                          
+                                          <th>Servicio realizado</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                        <th>Fecha</th>
-                                            <th>Duracion</th>
-                                            <th>Identificacion</th>
-                                            <th>Terapeuta</th>
-                                        </tr>
-                                    </tfoot>
+                                  
                                     <tbody>
                                         
                                     </tbody>
@@ -390,22 +389,19 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
+    <script src="../js/ClienteOperaciones/realizadasCliente.js"></script>
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="../js/demo/datatables-demo.js"></script>
+    <script src="../js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="../js/demo/datatables-medicamentosPendientes.js"></script>
-    <script src="../js/LoginNombrePersona.js"></script>
 </body>
 
 </html>

@@ -16,12 +16,11 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
 
-    <!-- Custom styles for this template -->
+    <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this page -->
-    <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 
 </head>
 
@@ -186,10 +185,11 @@
                         </div>
                     </li>
 
-                
-                    <!-- Nav Item - Messages -->
-                
+                    <!-- Nav Item - Alerts -->
+                  
 
+                    <!-- Nav Item - Messages -->
+                 
                     <div class="topbar-divider d-none d-sm-block"></div>
 
                     <!-- Nav Item - User Information -->
@@ -228,23 +228,26 @@
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Realice su factira</h6>
-                        </div>
+                    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+        <h6 class="m-0 font-weight-bold text-primary">Administrar inventario</h6>
+        <button type="button" class="btn btn-success btn-xl">Crear</button>
+    </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered" id="miTabla" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>ID de la factura</th>
-                        <th>Fecha</th>
-                        <th>Valor de la factura</th>
-                        <th>Modo de pago</th>
-                        <th>Identificacion</th>
+                                       
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Cedula</th>
+                        <th>Celular</th>
+                        <th>Correo</th>
                         <th>Acciones</th>
+            
                                         </tr>
                                     </thead>
-                                  
+                                   
                                     <tbody>
                                      
                                       
@@ -302,22 +305,18 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
+    <script src="../js/AdministradorOperaciones/GestionarTerapeutas.js"></script>
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
     <!-- Core plugin JavaScript-->
-    <script src="../js/LoginNombrePersona.js"></script>
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="../js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="../js/demo/datatables-demo.js"></script>
+    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
 
 </body>

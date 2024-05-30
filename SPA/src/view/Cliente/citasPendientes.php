@@ -16,9 +16,11 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.dataTables.css" />
 
     <!-- Custom styles for this template-->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 
 </head>
 
@@ -299,48 +301,44 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
+                    <!-- Page Heading -->   
                     <h1 class="h3 mb-2 text-gray-800">Información</h1>
                     <p class="mb-4">Estos datos son tomados, por las citas pendientes que tiene programadas con el terapeuta si no le aparecen campos es por que no tiene citas programadas pendientes.</p>
+                        <!-- MENSAJE DE ALERTA -->
+                        <div id="mensajeAlerta" class="contenedorAlerta">
+
+</div>  
                     <div class="input-group mb-2">
-            <input type="number" class="form-control" placeholder="Ingrese su cédula" aria-label="Ingrese su cédula" aria-describedby="button-addon2" style="max-width: 200px;">
+            <input type="number" class="form-control" placeholder="Ingrese su cédula" aria-label="Ingrese su cédula" aria-describedby="button-addon2" style="max-width: 200px;" name="identificacionCliente" id="identificacionCliente">
             <div class="input-group-append">
-                <button class="btn btn-success" type="button" id="button-addon2">Buscar</button>
+                <button class="btn btn-success" type="button" id="BuscarCliente">Buscar</button>
             </div>
+            
         </div>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Citas pendientes por el centro medico Lourdes</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>id de la cita</th>
-                        <th>Fecha de la cita</th>
-                        <th>Hora de la cita</th>
-                        <th>Estado de la cita</th>
-                        <th>Cedula del paciente</th>
-                        <th>Cedula del medico</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>id de la cita</th>
-                                            <th>Fecha de la cita</th>
-                                            <th>Hora de la cita</th>
-                                            <th>Estado de la cita</th>
-                                            <th>Cedula del paciente</th>
-                                            <th>Cedula del medico</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Citas pendientes por el SPA</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered text-center" id="miTabla" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>id de la cita</th>
+                            <th>Fecha de la cita</th>
+                            <th>Hora de la cita</th>
+                            <th>Estado de la cita</th>
+                            <th>Cedula del paciente</th>
+                            <th>Cedula del medico</th>
+                                            </tr>
+                                        </thead>
                                      
-                                      
-                                    </tbody>
-                                </table>
+                                        <tbody>
+                                        
+                                        
+                                        </tbody>
+                                    </table>
                             </div>
                         </div>
                     </div>
@@ -372,43 +370,24 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
+   
     <!-- Bootstrap core JavaScript-->
+
+    <script src="../js/ClienteOperaciones/pendientesCliente.js"></script>
+ 
     <script src="../vendor/jquery/jquery.min.js"></script>
     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
     <!-- Core plugin JavaScript-->
-    <script src="../js/LoginNombrePersona.js"></script>
     <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="../js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="../../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="../js/demo/datatables-demo.js"></script>
+
 
 
 </body>

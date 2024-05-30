@@ -25,7 +25,7 @@
    }
 
    // Bar Chart Example
-   var ctx = document.getElementById("myArea    Chart");
+   var ctx = document.getElementById("myAreaChart");
    var myBarChart = new Chart(ctx, {
        type: 'bar',
        data: {
