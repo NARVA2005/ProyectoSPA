@@ -132,7 +132,7 @@ fetch("../controller/Data/graphsinfo.php?query=2")
         labels: x,
 
         title: {
-          text: "Aprendices frecuentes",
+          text: "Contribución de cada servicio",
         },
         noData: {
           text: "Cargando...",
