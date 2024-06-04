@@ -24,6 +24,10 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
     exit;  
     }
     ?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,9 +43,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
 
     <!-- Custom fonts for this template-->
     <link href="../fontawesome-free-6.5.2-web/css/all.min.css" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="../sb-admin/css/sb-admin-2.min.css" rel="stylesheet">
@@ -88,13 +90,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                    aria-expanded="false" aria-controls="collapseOne">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tablas</span>
                 </a>
-                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-bs-parent="#accordionSidebar"
-                    style="">
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-bs-parent="#accordionSidebar" style="">
                     <div class="bg-white py-2 collapse-inner rounded navitem-container">
                         <h6 class="collapse-header">Tablas</h6>
                         <div class="collapse-item d-flex align-items-center p-0 justify-content-between">
@@ -137,7 +137,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a id="recargar" class="nav-link" onclick="pageChange(5)">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Gráficas</span></a>
             </li>
@@ -150,13 +150,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                 Facturación
             </div>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                    aria-expanded="false" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     <i class="fa-solid fa-file-invoice"></i>
                     <span>Facturar</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionSidebar"
-                    style="">
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionSidebar" style="">
                     <div class="bg-white py-2 collapse-inner rounded navitem-container">
                         <h6 class="collapse-header">Facturar</h6>
                         <div class="collapse-item d-flex align-items-center p-0 justify-content-between">
@@ -206,20 +204,16 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                     <ul class="navbar-nav ml-auto mr-2">
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                <span
-                                    class="me-2 d-none d-lg-inline text-secondary small"><?php echo isset($_SESSION["nombres"]) && isset($_SESSION["apellidos"]) ? $_SESSION["nombres"]." ".$_SESSION["apellidos"] : "Akira Toriyama";?></span>
-                                <img class="img-profile rounded-circle" src="../sb-admin/img/undraw_profile.svg"
-                                    alt="Profile Picture">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="me-2 d-none d-lg-inline text-secondary small"><?php echo isset($_SESSION["nombres"]) && isset($_SESSION["apellidos"]) ? $_SESSION["nombres"] . " " . $_SESSION["apellidos"] : "Akira Toriyama"; ?></span>
+                                <img class="img-profile rounded-circle" src="../sb-admin/img/undraw_profile.svg" alt="Profile Picture">
                             </a>
                             <!-- Dropdown - User Information -->
-                            <ul class="dropdown-menu dropdown-menu-end shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
+                            <ul class="dropdown-menu dropdown-menu-end shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <li>
                                     <a class="dropdown-item" href="#">
                                         <i class="fa-solid fa-chalkboard-user me-2 text-gray-400"></i>
-                                        <?php echo isset($_SESSION["nombres"]) && isset($_SESSION["apellidos"]) ? $_SESSION["nombres"]." ".$_SESSION["apellidos"] : "Akira Toriyama";?>
+                                        <?php echo isset($_SESSION["nombres"]) && isset($_SESSION["apellidos"]) ? $_SESSION["nombres"] . " " . $_SESSION["apellidos"] : "Akira Toriyama"; ?>
                                     </a>
                                 </li>
                                 <li>
@@ -232,8 +226,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                        data-bs-target="#logoutModal">
+                                    <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>
                                         Salir
                                     </a>
@@ -261,20 +254,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                                             <div class="col-lg-4 col-12" style="margin-top:2% !important">
 
                                                 <div class="input-group flex-nowrap">
-                                                    <input type="number" class="form-control"
-                                                        placeholder="Buscar por identificación" data-bs-toggle="tooltip"
-                                                        data-bs-placement="bottom"
-                                                        data-bs-title="Buscar por identificación" id="idSearchUser">
-                                                    <span class="input-group-text" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" data-bs-title="Buscar usuario"
-                                                        style="cursor:pointer" id="btnSearchUser"><i
-                                                            class="fa-solid fa-magnifying-glass"></i></span>
+                                                    <input type="number" class="form-control" placeholder="Buscar por identificación" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Buscar por identificación" id="idSearchUser">
+                                                    <span class="input-group-text" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Buscar usuario" style="cursor:pointer" id="btnSearchUser"><i class="fa-solid fa-magnifying-glass"></i></span>
                                                 </div>
 
 
                                             </div>
-                                            <div class="col-lg-4 col-12 justify-content-center"
-                                                style="margin-top:2% !important">
+                                            <div class="col-lg-4 col-12 justify-content-center" style="margin-top:2% !important">
                                                 <div class="form-floating">
                                                     <select name="filter" class="form-select" id="filterUser">
                                                         <option value="0">Usuarios</option>
@@ -286,11 +272,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
 
 
                                             </div>
-                                            <div class="col-lg-1 col-12 d-flex justify-content-center"
-                                                style="margin-top:2% !important">
-                                                <i class="fa-solid fa-list-ul listAll" data-bs-toggle="tooltip"
-                                                    data-bs-placement="top" data-bs-title="Listar todo"
-                                                    data-bs-custom-class="custom-tooltip-excel"></i>
+                                            <div class="col-lg-1 col-12 d-flex justify-content-center" style="margin-top:2% !important">
+                                                <i class="fa-solid fa-list-ul listAll" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Listar todo" data-bs-custom-class="custom-tooltip-excel"></i>
 
                                             </div>
                                         </div>
@@ -313,24 +296,14 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                                             <div class="col-lg-4 col-12" style="margin-top:2% !important">
 
                                                 <div class="input-group flex-nowrap">
-                                                    <input type="number" class="form-control"
-                                                        placeholder="Buscar por identificación" data-bs-toggle="tooltip"
-                                                        data-bs-placement="bottom"
-                                                        data-bs-title="Buscar por identificación" id="idSearchClient">
-                                                    <span class="input-group-text" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" data-bs-title="Buscar cliente"
-                                                        style="cursor:pointer" onclick="handleSearch(1,1)"><i
-                                                            class="fa-solid fa-magnifying-glass"></i></span>
+                                                    <input type="number" class="form-control" placeholder="Buscar por identificación" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Buscar por identificación" id="idSearchClient">
+                                                    <span class="input-group-text" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Buscar cliente" style="cursor:pointer" onclick="handleSearch(1,1)"><i class="fa-solid fa-magnifying-glass"></i></span>
                                                 </div>
 
 
                                             </div>
-                                            <div class="col-lg-1 col-12 d-flex justify-content-center"
-                                                style="margin-top:2% !important">
-                                                <i class="fa-solid fa-list-ul listAll" data-bs-toggle="tooltip"
-                                                    data-bs-placement="top" data-bs-title="Listar todo"
-                                                    data-bs-custom-class="custom-tooltip-excel"
-                                                    onclick="handleListAll(1,1)"></i>
+                                            <div class="col-lg-1 col-12 d-flex justify-content-center" style="margin-top:2% !important">
+                                                <i class="fa-solid fa-list-ul listAll" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Listar todo" data-bs-custom-class="custom-tooltip-excel" onclick="handleListAll(1,1)"></i>
 
                                             </div>
                                         </div>
@@ -353,24 +326,14 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                                             <div class="col-lg-4 col-12" style="margin-top:2% !important">
 
                                                 <div class="input-group flex-nowrap">
-                                                    <input type="number" class="form-control"
-                                                        placeholder="Buscar por id" data-bs-toggle="tooltip"
-                                                        data-bs-placement="bottom" data-bs-title="Buscar por id"
-                                                        id="idSearchService">
-                                                    <span class="input-group-text" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" data-bs-title="Buscar servicio"
-                                                        style="cursor:pointer" onclick="handleSearch(1,2)"><i
-                                                            class="fa-solid fa-magnifying-glass"></i></span>
+                                                    <input type="number" class="form-control" placeholder="Buscar por id" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Buscar por id" id="idSearchService">
+                                                    <span class="input-group-text" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Buscar servicio" style="cursor:pointer" onclick="handleSearch(1,2)"><i class="fa-solid fa-magnifying-glass"></i></span>
                                                 </div>
 
 
                                             </div>
-                                            <div class="col-lg-1 col-12 d-flex justify-content-center"
-                                                style="margin-top:2% !important">
-                                                <i class="fa-solid fa-list-ul listAll" data-bs-toggle="tooltip"
-                                                    data-bs-placement="top" data-bs-title="Listar todo"
-                                                    data-bs-custom-class="custom-tooltip-excel"
-                                                    onclick="handleListAll(1,2)"></i>
+                                            <div class="col-lg-1 col-12 d-flex justify-content-center" style="margin-top:2% !important">
+                                                <i class="fa-solid fa-list-ul listAll" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Listar todo" data-bs-custom-class="custom-tooltip-excel" onclick="handleListAll(1,2)"></i>
 
                                             </div>
                                         </div>
@@ -393,23 +356,14 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                                             <div class="col-lg-4 col-12" style="margin-top:2% !important">
 
                                                 <div class="input-group flex-nowrap">
-                                                    <input type="number" class="form-control"
-                                                        placeholder="Buscar por id" data-bs-toggle="tooltip"
-                                                        data-bs-placement="bottom" data-bs-title="Buscar por id"
-                                                        id="idSearchProduct">
-                                                    <span class="input-group-text" data-bs-toggle="tooltip"
-                                                        data-bs-placement="top" data-bs-title="Buscar producto"
-                                                        style="cursor:pointer" onclick="handleSearch(1,3)"><i
-                                                            class="fa-solid fa-magnifying-glass"></i></span>
+                                                    <input type="number" class="form-control" placeholder="Buscar por id" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Buscar por id" id="idSearchProduct">
+                                                    <span class="input-group-text" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Buscar producto" style="cursor:pointer" onclick="handleSearch(1,3)"><i class="fa-solid fa-magnifying-glass"></i></span>
                                                 </div>
 
 
                                             </div>
-                                            <div class="col-lg-1 col-12 d-flex justify-content-center"
-                                                style="margin-top:2% !important">
-                                                <i class="fa-solid fa-list-ul listAll" data-bs-toggle="tooltip"
-                                                    data-bs-placement="top" data-bs-title="Listar todo"
-                                                    data-bs-custom-class="custom-tooltip-excel"></i>
+                                            <div class="col-lg-1 col-12 d-flex justify-content-center" style="margin-top:2% !important">
+                                                <i class="fa-solid fa-list-ul listAll" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Listar todo" data-bs-custom-class="custom-tooltip-excel"></i>
 
                                             </div>
                                         </div>
@@ -422,6 +376,35 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                             </div>
                         </div>
                         <div class="page page-4 page-hide">4</div>
+
+
+                        <div class="page page-5 page-hide">
+
+                            <div class="row p-4 d-block" style="transition: all .3s linear;">
+
+
+                                <div class="col m-2 card shadow">
+                                    <div class="card-body text-end">
+                                        <div id="Grafica1" class="pb-3">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="col m-2 card shadow">
+                                    <div class="card-body text-end">
+                                        <div id="Grafica2" class="pb-3">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -548,8 +531,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-success"
-                        onclick="handleRequest(this,0,'post','post')">Guardar</button>
+                    <button type="button" class="btn btn-success" onclick="handleRequest(this,0,'post','post')">Guardar</button>
                 </div>
             </div>
         </div>
@@ -648,8 +630,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-success"
-                        onclick="handleRequest(this,0,'post','put')">Guardar</button>
+                    <button type="button" class="btn btn-success" onclick="handleRequest(this,0,'post','put')">Guardar</button>
                 </div>
             </div>
         </div>
@@ -672,8 +653,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-success"
-                        onclick="handleRequest(this,0,'post','status')">Aceptar</button>
+                    <button type="button" class="btn btn-success" onclick="handleRequest(this,0,'post','status')">Aceptar</button>
                 </div>
             </div>
         </div>
@@ -752,8 +732,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-success"
-                        onclick="handleRequest(this,1,'post','post')">Guardar</button>
+                    <button type="button" class="btn btn-success" onclick="handleRequest(this,1,'post','post')">Guardar</button>
                 </div>
             </div>
         </div>
@@ -833,8 +812,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-success"
-                        onclick="handleRequest(this,1,'post','put')">Guardar</button>
+                    <button type="button" class="btn btn-success" onclick="handleRequest(this,1,'post','put')">Guardar</button>
                 </div>
             </div>
         </div>
@@ -854,8 +832,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-success"
-                        onclick="handleRequest(this,1,'post','status')">Aceptar</button>
+                    <button type="button" class="btn btn-success" onclick="handleRequest(this,1,'post','status')">Aceptar</button>
                 </div>
             </div>
         </div>
@@ -915,8 +892,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-success"
-                        onclick="handleRequest(this,2,'post','post')">Guardar</button>
+                    <button type="button" class="btn btn-success" onclick="handleRequest(this,2,'post','post')">Guardar</button>
                 </div>
             </div>
         </div>
@@ -981,8 +957,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-success"
-                        onclick="handleRequest(this,2,'post','put')">Guardar</button>
+                    <button type="button" class="btn btn-success" onclick="handleRequest(this,2,'post','put')">Guardar</button>
                 </div>
             </div>
         </div>
@@ -1002,8 +977,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-success"
-                        onclick="handleRequest(this,2,'post','status')">Aceptar</button>
+                    <button type="button" class="btn btn-success" onclick="handleRequest(this,2,'post','status')">Aceptar</button>
                 </div>
             </div>
         </div>
@@ -1063,8 +1037,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-success"
-                        onclick="handleRequest(this,3,'post','post')">Guardar</button>
+                    <button type="button" class="btn btn-success" onclick="handleRequest(this,3,'post','post')">Guardar</button>
                 </div>
             </div>
         </div>
@@ -1133,8 +1106,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-success"
-                        onclick="handleRequest(this,3,'post','put')">Guardar</button>
+                    <button type="button" class="btn btn-success" onclick="handleRequest(this,3,'post','put')">Guardar</button>
                 </div>
             </div>
         </div>
@@ -1154,15 +1126,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-success"
-                        onclick="handleRequest(this,3,'post','status')">Aceptar</button>
+                    <button type="button" class="btn btn-success" onclick="handleRequest(this,3,'post','status')">Aceptar</button>
                 </div>
             </div>
         </div>
     </div>
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logOutModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logOutModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -1204,6 +1174,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
     <script src="../assets/js/datatable/datatablesconfig.js"></script>
     <script src="../assets/js/datatable/globalvars.js"></script>
     <script src="../assets/js/controlpanel/main.js"></script>
+
+    <script src="../assets/js/apexcharts/apexcharts.js"></script>
+
+    <script src="../assets/js/graficas.js"></script>
+ 
     <!-- Custom scripts for all pages-->
 
 
