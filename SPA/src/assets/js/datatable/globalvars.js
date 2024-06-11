@@ -48,6 +48,12 @@ const columnDefault = [
 </i><i class="fa-solid fa-gear text-warning mx-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Estado" style="cursor:pointer" onclick="handleModal(this,3,1)">
 </i>`,
   },
+  {
+    data: null,
+    defaultContent: `<i class="fa-solid fa-pencil text-primary mx-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Editar" style="cursor:pointer" onclick="handleModal(this,4,0)">
+</i><i class="fa-solid fa-gear text-warning mx-1" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Estado" style="cursor:pointer" onclick="handleModal(this,4,1)">
+</i>`,
+  },
   // Fin
 ];
 
@@ -151,6 +157,26 @@ const columnConfig = [
     },
     columnDefault[6],
   ],
+  //Tabla de citas
+  [
+    columnDefault[0],
+    { data: "id" },
+    { data: "fecha" },
+    { data: "id_cliente" },
+    { data: "id_servicio" }, 
+    {
+      data: "estado",
+      render: (data, type, row) => {
+        // Modificar el valor del campo estado
+        if (data === 1) {
+          return "Activo";
+        } else {
+          return "Inactivo";
+        }
+      },
+    },
+    columnDefault[7],
+  ],
 ];
 
 const layoutConfig = [
@@ -169,6 +195,10 @@ const layoutConfig = [
   // Tabla Productos
   function () {
     return "PRODUCTOS.." + obtainFilaName();
+  },
+   // Tabla Citas
+   function () {
+    return "CITAS.." + obtainFilaName();
   },
 ];
 
@@ -239,6 +269,23 @@ const columnDefsConfig = [
     {
       responsivePriority: 1,
       targets: [0, 7],
+    },
+    {
+      responsivePriority: 2,
+      targets: [1, 3, 4],
+    },
+  ],
+  //Tabla de citas
+  [
+    columnDefault[1],
+    columnDefault[2],
+    {
+      className: "text-center",
+      targets: [6],
+    },
+    {
+      responsivePriority: 1,
+      targets: [0, 6  ],
     },
     {
       responsivePriority: 2,

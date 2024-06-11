@@ -63,23 +63,23 @@ try {
             <!-- Sidebar -->
             <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color:#e6bb45">
 
-                <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                    <div class="sidebar-brand-icon rotate-n-15">
-                        <i class="fas fa-laugh-wink"></i>
-                    </div>
-                    <div class="sidebar-brand-text mx-3">SPA</div>
-                </a>
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">SPA</div>
+            </a>
 
                 <!-- Divider -->
                 <hr class="sidebar-divider my-0">
 
-                <!-- Nav Item - Dashboard -->
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">
-                        <i class="fa-solid fa-network-wired"></i>
-                        <span>Panel de control</span></a>
-                </li>
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">
+                    <i class="fa-solid fa-network-wired"></i>
+                    <span>Panel de control</span></a>
+            </li>
 
                 <!-- Divider -->
                 <hr class="sidebar-divider">
@@ -261,10 +261,10 @@ try {
                                                 </div>
                                                 <div class="col-lg-4 col-12" style="margin-top:2% !important">
 
-                                                    <div class="input-group flex-nowrap">
-                                                        <input type="number" class="form-control" placeholder="Buscar por identificación" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Buscar por identificación" id="idSearchUser">
-                                                        <span class="input-group-text" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Buscar usuario" style="cursor:pointer" id="btnSearchUser"><i class="fa-solid fa-magnifying-glass"></i></span>
-                                                    </div>
+                                                <div class="input-group flex-nowrap">
+                                                    <input type="number" class="form-control" placeholder="Buscar por identificación" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Buscar por identificación" id="idSearchUser">
+                                                    <span class="input-group-text" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Buscar usuario" style="cursor:pointer" id="btnSearchUser"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                                </div>
 
 
                                                 </div>
@@ -279,9 +279,9 @@ try {
                                                     </div>
 
 
-                                                </div>
-                                                <div class="col-lg-1 col-12 d-flex justify-content-center" style="margin-top:2% !important">
-                                                    <i class="fa-solid fa-list-ul listAll" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Listar todo" data-bs-custom-class="custom-tooltip-excel"></i>
+                                            </div>
+                                            <div class="col-lg-1 col-12 d-flex justify-content-center" style="margin-top:2% !important">
+                                                <i class="fa-solid fa-list-ul listAll" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Listar todo" data-bs-custom-class="custom-tooltip-excel"></i>
 
                                                 </div>
                                             </div>
@@ -379,14 +379,14 @@ try {
                                         <hr>
                                         <div class="table-responsive">
 
-                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="page page-4 page-hide">4</div>
+                        </div>
+                        <div class="page page-4 page-hide">4</div>
 
 
-                            <div class="page page-5 page-hide">
+                        <div class="page page-5 page-hide">
 
                                 <div class="row p-4 d-block" style="transition: all .3s linear;">
 
@@ -1160,55 +1160,55 @@ try {
                                         <label for="value" class="form-label">Precio</label>
                                     </div>
 
-                                </div>
                             </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-success" onclick="handleRequest(this,3,'post','put')">Guardar</button>
-                    </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success" onclick="handleRequest(this,3,'post','put')">Guardar</button>
                 </div>
             </div>
         </div>
-        <!-- Status Product Modal -->
-        <div class="modal fade" id="statusModalProducto" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="statusModalProductoLabel">Cambiar estado</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <h6 class="text-center text-danger">Esta acción cambiará el estado de este producto, si está
-                            "Activo" pasará a "Inactivo" y viceversa.</h6>
-                        <input type="number" name="id" style="display:none">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-success" onclick="handleRequest(this,3,'post','status')">Aceptar</button>
-                    </div>
+    </div>
+    <!-- Status Product Modal -->
+    <div class="modal fade" id="statusModalProducto" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="statusModalProductoLabel">Cambiar estado</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="text-center text-danger">Esta acción cambiará el estado de este producto, si está
+                        "Activo" pasará a "Inactivo" y viceversa.</h6>
+                    <input type="number" name="id" style="display:none">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success" onclick="handleRequest(this,3,'post','status')">Aceptar</button>
                 </div>
             </div>
         </div>
-        <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logOutModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="logOutModalLabel">Cerrar sesión</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">Selecciona "Aceptar" si quieres cerrar la sesión actual</div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
-                        <a class="btn btn-primary" href="../controller/Login/logout.php">Aceptar</a>
-                    </div>
+    </div>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logOutModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="logOutModalLabel">Cerrar sesión</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Selecciona "Aceptar" si quieres cerrar la sesión actual</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-primary" href="../controller/Login/logout.php">Aceptar</a>
                 </div>
             </div>
         </div>
+    </div>
 
         <!-- Bootstrap core JavaScript-->
         <script src="../../node_modules/jquery/dist/jquery.min.js"></script>

@@ -39,6 +39,7 @@ const idSearchUser = document.querySelector("#idSearchUser");
 const idSearchClient = document.querySelector("#idSearchClient");
 const idSearchService = document.querySelector("#idSearchService");
 const idSearchProduct = document.querySelector("#idSearchProduct");
+const idSearchquotes= document.querySelector("#idSearchquotes");
 const filterUser = document.querySelector("#filterUser");
 
 // Definimos un FormData global, el que contendrá los datos de todos los modales y operaciones.
@@ -52,9 +53,11 @@ const handleListAll = (target, action) => {
     "clientsinfo.php",
     "servicesinfo.php",
     "productsinfo.php",
+    "appointmentsinfo.php",
   ];
   const actionParams = [
     `rol=${filterUser.value}&all=true`,
+    "all=true",
     "all=true",
     "all=true",
     "all=true",
@@ -65,6 +68,7 @@ const handleListAll = (target, action) => {
       action,
       `../controller/${carpets[target]}/${actionTarget[action]}?${actionParams[action]}`
     )
+
   );
   tooltipRemove();
 };
@@ -77,12 +81,14 @@ const handleSearch = (target, action) => {
     "clientsinfo.php",
     "servicesinfo.php",
     "productsinfo.php",
+    "appointmentsinfo.php",
   ];
   const actionParams = [
     idSearchUser.value,
     idSearchClient.value,
     idSearchService.value,
     idSearchProduct.value,
+    idSearchquotes.value,
   ];
   $("#datatable" + action).dataTable(
     returnDatatableOption(
@@ -102,21 +108,21 @@ const handleRequest = (element, target, method, action) => {
       "../controller/Create/createclient.php",
       "../controller/Create/createservice.php",
       "../controller/Create/createproduct.php",
-      "../controller/Create/createappointment.php",
+
     ],
     put: [
       "../controller/Administrador/edituser.php",
       "../controller/Edit/editclient.php",
       "../controller/Edit/editservice.php",
       "../controller/Edit/editproduct.php",
-      "../controller/Edit/editappointment.php",
+      "../controller/Edit/editquote.php",
     ],
     status: [
       "../controller/Administrador/statususer.php",
       "../controller/Status/statusclient.php",
       "../controller/Status/statusservice.php",
       "../controller/Status/statusproduct.php",
-      "../controller/Status/statusappointment.php",
+      "../controller/Status/statusquote.php",
     ],
   };
 
@@ -158,7 +164,7 @@ const handleModal = (element, target, action) => {
     ["#editModalCliente", "#statusModalCliente"],
     ["#editModalServicio", "#statusModalServicio"],
     ["#editModalProducto", "#statusModalProducto"],
-    ["#editModalCita", "#statusModalCita"],
+    ["#editModalquote", "#statusModalquote"],
   ];
   globalModal = modals[target][action];
   const elements = Array.from(element.parentElement.parentElement.children);
@@ -199,6 +205,27 @@ const clearData = (element) => {
       e.value = "";
     });
 };
+
+//Recopilar los datos guardados en los options de forma dinamica
+document.addEventListener("DOMContentLoaded", function() {
+  fetch('../controller/Edit/prueba.php')
+    .then(response => response.json())
+    .then(data => {
+      const select = document.getElementById('serviciosID');
+      data.forEach(servicio => {
+        const option = document.createElement('option');
+        option.value = servicio.id;
+        option.text = servicio.nombre;
+        select.add(option);
+      });
+    })
+    .catch(error => {
+      console.error('Error loading services:', error);
+    });
+});
+
+
+
 const fillData = (modal, data) => {
   let index = 0;
   const element = document.querySelector(modal);
