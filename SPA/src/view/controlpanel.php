@@ -63,7 +63,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
         <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color:#e6bb45">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -75,7 +75,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="../../index.php">
                     <i class="fa-solid fa-network-wired"></i>
                     <span>Panel de control</span></a>
             </li>
@@ -255,7 +255,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
 
                                                 <div class="input-group flex-nowrap">
                                                     <input type="number" class="form-control" placeholder="Buscar por identificación" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Buscar por identificación" id="idSearchUser">
-                                                    <span class="input-group-text" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Buscar usuario" style="cursor:pointer" id="btnSearchUser"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                                    <span class="input-group-text" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Buscar usuario" style="cursor:pointer" id="btnSearchUser"><i class="fa-solid fa-magnifying-glass" onclick="handleSearch(0,0)"></i></span>
                                                 </div>
 
 
@@ -273,7 +273,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
 
                                             </div>
                                             <div class="col-lg-1 col-12 d-flex justify-content-center" style="margin-top:2% !important">
-                                                <i class="fa-solid fa-list-ul listAll" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Listar todo" data-bs-custom-class="custom-tooltip-excel"></i>
+                                                <i class="fa-solid fa-list-ul listAll" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Listar todo" data-bs-custom-class="custom-tooltip-excel" onclick="handleListAll(0,0)"></i>
 
                                             </div>
                                         </div>
@@ -375,10 +375,40 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                                 </div>
                             </div>
                         </div>
-                        <div class="page page-4 page-hide">4</div>
+                        <div class="page page-4 page-hide">
+                        <div class="card">
+                                <div class="card-body">
+                                    <div class="justify">
+                                        <div class="row align-items-center">
+                                            <div class="col-lg-2 col-12 text-center" style="margin-top:2% !important">
+                                                <h5 class="card-title">Citas</h5>
+                                            </div>
+                                            <div class="col-lg-4 col-12" style="margin-top:2% !important">
+
+                                                <div class="input-group flex-nowrap">
+                                                    <input type="number" class="form-control" placeholder="Buscar por id" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Buscar por id" id="idSearchquotes">
+                                                    <span class="input-group-text" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Buscar cita" style="cursor:pointer" onclick="handleSearch(1,4)">
+                                                        <i class="fa-solid fa-magnifying-glass"></i></span>
+                                                </div>
 
 
-                        <div class="page page-5 page-hide">
+                                            </div>
+                                            <div class="col-lg-1 col-12 d-flex justify-content-center" style="margin-top:2% !important">
+                                                <i class="fa-solid fa-list-ul listAll" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Listar todo" data-bs-custom-class="custom-tooltip-excel" onclick="handleListAll(1,4)"></i>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="table-responsive">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="page page-5 page-show">
 
                             <div class="row p-4 d-block" style="transition: all .3s linear;">
 
@@ -1127,6 +1157,89 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     <button type="button" class="btn btn-success" onclick="handleRequest(this,3,'post','status')">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+      <!-- Edit quote Modal -->
+      <div class="modal fade" id="editModalquote" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="editModalQuotelabel">Editar cita</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <form action="">
+                        <div class="row mx-auto mb-3">
+                            <div class="col">
+                                <div class="form-floating">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" name="id" placeholder="" readonly>
+                                        <label for="id" class="form-label">Id</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-floating">
+                                    <div class="form-floating">
+                                        <input type="datetime-local" class="form-control" name="fecha" placeholder="">
+                                        <label for="stock" class="form-label">Fecha</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row mx-auto mb-3">
+                            <div class="col">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" name="name" placeholder="" readonly>
+                                    <label for="name" class="form-label">Cliente</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mx-auto mb-3">
+    <div class="col">
+        <div class="form-floating">
+            <select name="servicio" id="serviciosID" class="form-select">
+                <!-- Options se llenarán dinámicamente -->
+            </select>
+            <label for="serviciosID" class="form-label">Servicio</label>
+        </div>
+    </div>
+</div>
+
+                      
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success" onclick="handleRequest(this,4,'post','put')">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Status quote Modal -->
+    <div class="modal fade" id="statusModalquote" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="statusModalQuoteLabel">Cambiar estado</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="text-center text-danger">Esta acción cambiará el estado de este producto, si está
+                        "Activo" pasará a "Inactivo" y viceversa.</h6>
+                    <input type="number" name="id" style="display:none">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success" onclick="handleRequest(this,4,'post','status')">Aceptar</button>
                 </div>
             </div>
         </div>
