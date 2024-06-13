@@ -1161,7 +1161,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
             </div>
         </div>
     </div>
-
+hola amigo, soy yo
 
       <!-- Edit quote Modal -->
       <div class="modal fade" id="editModalquote" tabindex="-1" aria-hidden="true">
