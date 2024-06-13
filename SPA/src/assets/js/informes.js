@@ -20,7 +20,10 @@ generarInforme.addEventListener("click", function () {
     fechaInicio.value != ""
   ) {
     {
-      fetch("../controller/Data/graphsinfo.php?query=ingresos")
+      let fechaInicioAdaptada = fechaInicio.value
+      let fechaFinAdaptada = fechaFin.value
+      
+          fetch("../controller/Data/graphsinfo.php?query=ingresos&fechaInicio="+fechaInicioAdaptada+"&fechaFin="+fechaFinAdaptada)
         .then(function (response) {
           return response.json();
         })
