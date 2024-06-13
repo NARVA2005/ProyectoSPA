@@ -35,6 +35,9 @@ try{
         }
         else{
             $mysql->conectar();
+
+
+            //Gráficas
         if(isset($_GET["query"])){
         $query = $_GET["query"];   
         if($query == 1){
@@ -45,10 +48,23 @@ try{
         $stmt = $mysql->consulta("SELECT servicio.nombre as x, SUM(servicio.precio) as y FROM cita  INNER JOIN servicio ON id_servicio = servicio.id GROUP BY id_servicio  ORDER BY y DESC",[]); 
         echo json_encode($stmt -> fetchAll(PDO::FETCH_ASSOC));
         }
-        else if($query == 3){
-        $stmt = $mysql->consulta("SELECT CASE WHEN estado = 1 THEN 'Activo' ELSE 'Inactivo' END as x, COUNT(estado) as y FROM registro GROUP BY x ORDER BY y DESC",[]); 
+        //Reportes
+        else if($query == "clientes"){
+        $stmt = $mysql->consulta("SELECT id_cliente,nombres,apellidos,servicio.nombre,COUNT(servicio.nombre) as 'Frecuencia del servicio'  FROM cita INNER JOIN cliente ON cita.id_cliente = cliente.id INNER JOIN servicio ON cita.id_servicio = servicio.id GROUP by servicio.nombre",[]); 
         echo json_encode($stmt -> fetchAll(PDO::FETCH_ASSOC));
         }
+        else if($query == "ocupacion"){
+            $stmt = $mysql->consulta("SELECT CASE WHEN estado = 1 THEN 'Activo' ELSE 'Inactivo' END as x, COUNT(estado) as y FROM registro GROUP BY x ORDER BY y DESC",[]); 
+            echo json_encode($stmt -> fetchAll(PDO::FETCH_ASSOC));
+            }
+            else if($query == "ingresos"){
+                $stmt = $mysql->consulta("SELECT CASE WHEN estado = 1 THEN 'Activo' ELSE 'Inactivo' END as x, COUNT(estado) as y FROM registro GROUP BY x ORDER BY y DESC",[]); 
+                echo json_encode($stmt -> fetchAll(PDO::FETCH_ASSOC));
+                }
+                else if($query == "inventario"){
+                    $stmt = $mysql->consulta("SELECT CASE WHEN estado = 1 THEN 'Activo' ELSE 'Inactivo' END as x, COUNT(estado) as y FROM registro GROUP BY x ORDER BY y DESC",[]); 
+                    echo json_encode($stmt -> fetchAll(PDO::FETCH_ASSOC));
+                    }
         else{
         echo "[]";
         }
