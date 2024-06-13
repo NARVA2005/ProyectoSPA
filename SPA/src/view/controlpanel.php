@@ -1426,6 +1426,91 @@ try {
             </div>
         </div>
     </div>
+
+<!-- hola amigo, soy yo -->
+
+      <!-- Edit quote Modal -->
+      <div class="modal fade" id="editModalquote" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="editModalQuotelabel">Editar cita</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <form action="">
+                        <div class="row mx-auto mb-3">
+                            <div class="col">
+                                <div class="form-floating">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" name="id" placeholder="" readonly>
+                                        <label for="id" class="form-label">Id</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <div class="form-floating">
+                                    <div class="form-floating">
+                                        <input type="datetime-local" class="form-control" name="fecha" placeholder="">
+                                        <label for="stock" class="form-label">Fecha</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row mx-auto mb-3">
+                            <div class="col">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" name="name" placeholder="" readonly>
+                                    <label for="name" class="form-label">Cliente</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mx-auto mb-3">
+    <div class="col">
+        <div class="form-floating">
+            <select name="servicio" id="serviciosID" class="form-select">
+                <!-- Options se llenarán dinámicamente -->
+            </select>
+            <label for="serviciosID" class="form-label">Servicio</label>
+        </div>
+    </div>
+</div>
+
+                      
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success" onclick="handleRequest(this,4,'post','put')">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Status quote Modal -->
+    <div class="modal fade" id="statusModalquote" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="statusModalQuoteLabel">Cambiar estado</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="text-center text-danger">Esta acción cambiará el estado de este producto, si está
+                        "Activo" pasará a "Inactivo" y viceversa.</h6>
+                    <input type="number" name="id" style="display:none">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success" onclick="handleRequest(this,4,'post','status')">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logOutModalLabel"
         aria-hidden="true">
