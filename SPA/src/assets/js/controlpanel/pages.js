@@ -14,7 +14,18 @@ const pageChange = (n) => {
     "productsinfo.php",
     "appointmentsinfo.php",
   ];
-  $("#datatable" + n).dataTable(
-    returnDatatableOption(n, `../controller/${carpets[n]}/${actionTarget[n]}`)
-  );
+
+  if (document.querySelector("#datatable" + n)) {
+    $("#datatable" + n).dataTable(
+      returnDatatableOption(n, `../controller/${carpets[n]}/${actionTarget[n]}`)
+    );
+  } else {
+    switch (n) {
+      case 5:
+        cargar();
+        break;
+      case 6:
+        "";
+    }
+  }
 };

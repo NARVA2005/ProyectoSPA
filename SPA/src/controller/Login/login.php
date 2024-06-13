@@ -1,9 +1,9 @@
 <?php
 session_start();
+
 require_once '../../config/mysql.php';
 $mysql = new Mysql;
 try{
-
 if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['password']) && isset($_SESSION['login'])){
     $id = $_SESSION['id'];
     $mysql -> conectar();
@@ -18,7 +18,10 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
     echo '{"data":"Ya hay una sesión iniciada","response":"success"}';
     exit;
 }
-
+if(!isset($_POST['user']) || !isset($_POST['password'])){
+echo '{"data":"Datos no válidos","response":"error"}';
+    exit;
+}
 $user = $_POST['user'];
 $password = $_POST['password'];
 $mysql -> conectar();
@@ -28,6 +31,7 @@ $stmt = $mysql->consulta("SELECT * FROM usuario where id = ?",[$user]);
 else{
 $stmt = $mysql->consulta("SELECT * FROM usuario where correo = ?",[$user]);
 }
+
 $result = $stmt->fetch(PDO::FETCH_NUM);
 if ($stmt->rowCount() == 1){
     if(password_verify($password,$result[5])){

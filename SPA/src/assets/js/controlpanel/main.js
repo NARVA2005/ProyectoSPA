@@ -39,7 +39,7 @@ const idSearchUser = document.querySelector("#idSearchUser");
 const idSearchClient = document.querySelector("#idSearchClient");
 const idSearchService = document.querySelector("#idSearchService");
 const idSearchProduct = document.querySelector("#idSearchProduct");
-const idSearchquotes= document.querySelector("#idSearchquotes");
+const idSearchquotes = document.querySelector("#idSearchquotes");
 const filterUser = document.querySelector("#filterUser");
 
 // Definimos un FormData global, el que contendrá los datos de todos los modales y operaciones.
@@ -68,7 +68,6 @@ const handleListAll = (target, action) => {
       action,
       `../controller/${carpets[target]}/${actionTarget[action]}?${actionParams[action]}`
     )
-
   );
   tooltipRemove();
 };
@@ -108,7 +107,6 @@ const handleRequest = (element, target, method, action) => {
       "../controller/Create/createclient.php",
       "../controller/Create/createservice.php",
       "../controller/Create/createproduct.php",
-
     ],
     put: [
       "../controller/Administrador/edituser.php",
@@ -153,6 +151,7 @@ const handleRequest = (element, target, method, action) => {
         if (action != "post") {
           $(globalModal).modal("hide");
         }
+        target == 2 ? fillSelect() : "";
       }
     });
 };
@@ -206,26 +205,6 @@ const clearData = (element) => {
     });
 };
 
-//Recopilar los datos guardados en los options de forma dinamica
-document.addEventListener("DOMContentLoaded", function() {
-  fetch('../controller/Edit/prueba.php')
-    .then(response => response.json())
-    .then(data => {
-      const select = document.getElementById('serviciosID');
-      data.forEach(servicio => {
-        const option = document.createElement('option');
-        option.value = servicio.id;
-        option.text = servicio.nombre;
-        select.add(option);
-      });
-    })
-    .catch(error => {
-      console.error('Error loading services:', error);
-    });
-});
-
-
-
 const fillData = (modal, data) => {
   let index = 0;
   const element = document.querySelector(modal);
@@ -251,3 +230,19 @@ const fillData = (modal, data) => {
     : "";
   openModal(modal);
 };
+
+const fillSelect = () => {
+  fetch("../controller/Data/servicesinfo.php?all=true")
+    .then((res) => res.json())
+    .then((res) => {
+      const services = document.querySelectorAll(".services");
+      services[0].innerHTML = "";
+      // services[1].innerHTML = "";
+      res.forEach((e) => {
+        services[0].innerHTML += `<option value=${e.id}>${e.nombre}</option>`;
+        // services[1].innerHTML += `<option value=${e.id}>${e.nombre}</option>`;
+      });
+    });
+};
+
+fillSelect();

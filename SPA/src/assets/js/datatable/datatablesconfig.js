@@ -408,53 +408,59 @@ const returnDatatableOption = (condition, URL) => {
         onclick: "openModal('#modalProducto')",
       },
     });
-  }else if(condition==4){
-     // Misma estructura y funcionalidad que las anteriores según la configuración que se de en globalvars.js y configuraciones extras.
+  } else if (condition == 4) {
+    // Misma estructura y funcionalidad que las anteriores según la configuración que se de en globalvars.js y configuraciones extras.
 
-     datatableOptions.ajax.url = URL;
-     datatableOptions.columns = columnConfig[4];
-     datatableOptions.layout.topCenter.buttons[1].title = "LISTA DE CITAS";
-     datatableOptions.layout.topCenter.buttons[2].title = "LISTA DE CITAS";
-     datatableOptions.layout.topCenter.buttons[3].title = "LISTA DE CITAS";
-     datatableOptions.layout.topCenter.buttons[1].filename = layoutConfig[4];
-     datatableOptions.layout.topCenter.buttons[2].filename = layoutConfig[4];
- 
-     datatableOptions.layout.topCenter.buttons[1].exportOptions = {
-       columns: [1, 2, 3, 4, 5, 6],
-       format: {
-         body: function (data, row, column, node) {
-           let datos = data + "";
-           return datos;
-         },
-       },
-     };
-     datatableOptions.layout.topCenter.buttons[2].exportOptions = {
-       columns: [1, 2, 3, 4, 5, 6],
-       format: {
-         body: function (data, row, column, node) {
-           let datos = data + "";
-           return datos;
-         },
-       },
-     };
-     datatableOptions.layout.topCenter.buttons[3].exportOptions = {
-       columns: [1, 2, 3, 4, 5, 6],
-       format: {
-         body: function (data, row, column, node) {
-           let datos = data + "";
-           return datos;
-         },
-       },
-     };
- 
-     datatableOptions.columnDefs = columnDefsConfig[4];
-     // Botón personalizado, este irá al final de todos los demás botones anteriormente asignados
-     datatableOptions.layout.topCenter.buttons.push({
-       extend: "",
-       text: `<i class="fa-solid fa-tag"></i>`,
-       className: "btn btn-secondary mx-2 datatable-buttons",
-      
-     });
+    datatableOptions.ajax.url = URL;
+    datatableOptions.columns = columnConfig[4];
+    datatableOptions.layout.topCenter.buttons[1].title = "LISTA DE CITAS";
+    datatableOptions.layout.topCenter.buttons[2].title = "LISTA DE CITAS";
+    datatableOptions.layout.topCenter.buttons[3].title = "LISTA DE CITAS";
+    datatableOptions.layout.topCenter.buttons[1].filename = layoutConfig[4];
+    datatableOptions.layout.topCenter.buttons[2].filename = layoutConfig[4];
+
+    datatableOptions.layout.topCenter.buttons[1].exportOptions = {
+      columns: [1, 2, 3, 4, 5, 6],
+      format: {
+        body: function (data, row, column, node) {
+          let datos = data + "";
+          return datos;
+        },
+      },
+    };
+    datatableOptions.layout.topCenter.buttons[2].exportOptions = {
+      columns: [1, 2, 3, 4, 5, 6],
+      format: {
+        body: function (data, row, column, node) {
+          let datos = data + "";
+          return datos;
+        },
+      },
+    };
+    datatableOptions.layout.topCenter.buttons[3].exportOptions = {
+      columns: [1, 2, 3, 4, 5, 6],
+      format: {
+        body: function (data, row, column, node) {
+          let datos = data + "";
+          return datos;
+        },
+      },
+    };
+
+    datatableOptions.columnDefs = columnDefsConfig[4];
+    // Botón personalizado, este irá al final de todos los demás botones anteriormente asignados
+    datatableOptions.layout.topCenter.buttons.push({
+      extend: "",
+      text: `<i class="fa-solid fa-tag"></i>`,
+      className: "btn btn-secondary mx-2 datatable-buttons",
+      attr: {
+        "data-bs-toggle": "tooltip",
+        "data-bs-placement": "top",
+        "data-bs-custom-class": "custom-tooltip-visibility",
+        "data-bs-title": "Agendar cita",
+        onclick: "openModal('#modalQuote')",
+      },
+    });
   }
 
   return datatableOptions;
@@ -536,6 +542,21 @@ const resetTables = () => {
 
   </table>`;
   tableContainer[4].innerHTML = `<table id="datatable4" class="table table-bordered" width="100%" cellspacing="0">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Id</th>
+            <th>Fecha</th>
+            <th>Cliente</th>
+            <th>Servicio</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>`;
+  tableContainer[5].innerHTML = `<table id="datatable5" class="table table-bordered" width="100%" cellspacing="0">
     <thead>
         <tr>
             <th>#</th>

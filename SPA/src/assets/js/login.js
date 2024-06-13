@@ -8,7 +8,7 @@ const login = () => {
     const frmData = new FormData();
     frmData.append("user", user);
     frmData.append("password", password);
-    fetch("../controller/login/login.php", {
+    fetch("../controller/Login/login.php", {
       method: "POST",
       body: frmData,
     })
