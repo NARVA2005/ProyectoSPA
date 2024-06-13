@@ -2,7 +2,7 @@
 class Mysql {
 private $username = "root";
 private $password  = "";
-private $dsn = "mysql:host=localhost;dbname=bd_spa;charset=utf8";
+private $dsn = "mysql:host=localhost;dbname=spa;charset=utf8";
 
 private $pdo;
 private $queryResult;
