@@ -9,8 +9,7 @@ function cargar() {
       height: 350,
       type: "bar",
     },
-    colors: ["#5eb319"],
-
+   
     dataLabels: {
       enabled: false,
     },
@@ -85,6 +84,8 @@ function cargar() {
           chart: {
             height: 400,
             type: "pie",
+        
+            
             toolbar: {
               show: true,
               offsetX: 0,
@@ -119,6 +120,18 @@ function cargar() {
               autoSelected: "zoom",
             },
           },
+          
+        
+            theme: {
+              mode: 'light', 
+              palette: 'palette10', 
+              monochrome: {
+                  enabled: false,
+                  color: '#255aee',
+                  shadeTo: 'light',
+                  shadeIntensity: 0.65
+              },
+          },
 
           dataLabels: {
             enabled: true,
@@ -126,6 +139,7 @@ function cargar() {
           //establece los datos separados anteriormente
           series: y,
           labels: x,
+          
 
           title: {
             text: "Contribución de cada servicio",
@@ -137,6 +151,7 @@ function cargar() {
             {
               breakpoint: 480,
               options: {
+                
                 chart: {
                   width: 200,
                 },

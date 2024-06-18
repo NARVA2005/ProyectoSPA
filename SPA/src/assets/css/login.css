@@ -164,10 +164,10 @@ p {
 
 #btnLogin {
   width: 100%;
-  background-color: #e6bb45;
+  background-color: #6c29e7;
   font-weight: 500;
   color: #fff;
 }
 #btnLogin:hover {
-  background-color: #e9b016;
+  background-color: #6c29e7;
 }

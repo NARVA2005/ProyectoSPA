@@ -61,7 +61,7 @@ try {
         <div id="wrapper">
 
             <!-- Sidebar -->
-            <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color:#e6bb45">
+            <ul class="navbar-nav bg-sidebar sidebar sidebar-dark accordion" id="accordionSidebar" >
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -205,7 +205,7 @@ try {
 
                         <!-- Sidebar Toggle (Topbar) -->
                         <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                            <i class="fa fa-bars" style="color:#e6bb45"></i>
+                            <i class="spa-color fa fa-bars"></i>
                         </button>
 
                         <!-- Topbar Navbar -->

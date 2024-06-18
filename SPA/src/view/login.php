@@ -79,7 +79,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
 
                             <div class="d-flex mb-5 align-items-center">
 
-                                <button type="button" id="btnLogin" class="btn btn-block">Ingresar</button>
+                                <button type="button" id="btnLogin" class="btn btn-block bg-sidebar">Ingresar</button>
                             </div>
 
                         </form>
