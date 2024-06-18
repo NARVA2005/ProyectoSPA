@@ -508,10 +508,10 @@ try {
 
                                             </div>
 
-                                        </form>
-                                        <a id="generarInforme" class="btn btn-success">Generar informe</a>
+                                            </form>
+                                            <a id="generarInforme" class="btn btn-success">Generar informe</a>
 
-
+                                            <span id="mensaje"></span>
                                     </div>
                                 </div>
 

@@ -40,6 +40,8 @@ try{
             //Gráficas
         if(isset($_GET["query"])){
         $query = $_GET["query"];   
+  
+
         if($query == 1){
         $stmt = $mysql->consulta("SELECT servicio.nombre as x, COUNT(id_servicio) as y FROM cita  INNER JOIN servicio ON id_servicio = servicio.id GROUP BY id_servicio  ORDER BY y DESC",[]); 
         echo json_encode($stmt -> fetchAll(PDO::FETCH_ASSOC));
@@ -54,17 +56,19 @@ try{
         echo json_encode($stmt -> fetchAll(PDO::FETCH_ASSOC));
         }
         else if($query == "ocupacion"){
-            $stmt = $mysql->consulta("SELECT CASE WHEN estado = 1 THEN 'Activo' ELSE 'Inactivo' END as x, COUNT(estado) as y FROM registro GROUP BY x ORDER BY y DESC",[]); 
-            echo json_encode($stmt -> fetchAll(PDO::FETCH_ASSOC));
-            }
-            else if($query == "ingresos"){
-                $stmt = $mysql->consulta("SELECT CASE WHEN estado = 1 THEN 'Activo' ELSE 'Inactivo' END as x, COUNT(estado) as y FROM registro GROUP BY x ORDER BY y DESC",[]); 
-                echo json_encode($stmt -> fetchAll(PDO::FETCH_ASSOC));
-                }
-                else if($query == "inventario"){
-                    $stmt = $mysql->consulta("SELECT CASE WHEN estado = 1 THEN 'Activo' ELSE 'Inactivo' END as x, COUNT(estado) as y FROM registro GROUP BY x ORDER BY y DESC",[]); 
-                    echo json_encode($stmt -> fetchAll(PDO::FETCH_ASSOC));
-                    }
+        $stmt = $mysql->consulta("SELECT usuario.nombres, usuario.apellidos, COUNT(asignacion_servicio.id_usuario) as 'veces solicitadas', usuario.horario FROM `asignacion_servicio`  INNER JOIN usuario on asignacion_servicio.id_usuario = usuario.id",[]); 
+        echo json_encode($stmt -> fetchAll(PDO::FETCH_ASSOC));
+        }
+        else if($query == "ingresos"){
+        $fechaInicio = $_GET["fechaInicio"];
+        $fechaFin = $_GET["fechaFin"];
+        $stmt = $mysql->consulta("SELECT servicio.nombre as Servicio, SUM(servicio.precio) as Total FROM cita INNER JOIN servicio ON id_servicio = servicio.id  WHERE fecha BETWEEN '".$fechaInicio."' and '".$fechaFin."' GROUP BY id_servicio",[]); 
+        echo json_encode($stmt -> fetchAll(PDO::FETCH_ASSOC));
+        }
+        else if($query == "inventario"){
+        $stmt = $mysql->consulta("SELECT  producto.nombre,producto.stock, SUM(detalle_sesion.cantidad) as Utilizados FROM detalle_sesion INNER JOIN producto ON detalle_sesion.id_producto = producto.id GROUP by detalle_sesion.id_producto",[]); 
+        echo json_encode($stmt -> fetchAll(PDO::FETCH_ASSOC));
+        }
         else{
         echo "[]";
         }
