@@ -420,29 +420,35 @@ const returnDatatableOption = (condition, URL) => {
     datatableOptions.layout.topCenter.buttons[2].filename = layoutConfig[4];
 
     datatableOptions.layout.topCenter.buttons[1].exportOptions = {
-      columns: [1, 2, 3, 4, 5, 6],
+      columns: [1, 2, 3, 4, 5],
       format: {
         body: function (data, row, column, node) {
           let datos = data + "";
-          return datos;
+          return column === 3
+            ? datos.replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+            : datos;
         },
       },
     };
     datatableOptions.layout.topCenter.buttons[2].exportOptions = {
-      columns: [1, 2, 3, 4, 5, 6],
+      columns: [1, 2, 3, 4, 5],
       format: {
         body: function (data, row, column, node) {
           let datos = data + "";
-          return datos;
+          return column === 3
+          ? datos.replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+          : datos;
         },
       },
     };
     datatableOptions.layout.topCenter.buttons[3].exportOptions = {
-      columns: [1, 2, 3, 4, 5, 6],
+      columns: [1, 2, 3, 4, 5],
       format: {
         body: function (data, row, column, node) {
           let datos = data + "";
-          return datos;
+          return column === 3
+            ? datos.replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+            : datos;
         },
       },
     };
@@ -479,7 +485,8 @@ const resetTables = () => {
           <th>Apellidos</th>
           <th>Teléfono</th>
           <th>Correo</th>
-          <th>Horario</th>
+          <th>Hora Inicio</th>
+          <th>Hora final</th>
           <th>Rol</th>
           <th>Estado</th>
           <th>Acciones</th>

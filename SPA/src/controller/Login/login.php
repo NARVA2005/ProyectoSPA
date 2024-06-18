@@ -35,7 +35,7 @@ $stmt = $mysql->consulta("SELECT * FROM usuario where correo = ?",[$user]);
 $result = $stmt->fetch(PDO::FETCH_NUM);
 if ($stmt->rowCount() == 1){
     if(password_verify($password,$result[5])){
-        if($result[8] != 1){
+        if($result[9] != 1){
         echo '{"data":"Su estado actual es inactivo","response":"error"}';
         exit;
         }

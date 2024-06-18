@@ -66,7 +66,8 @@ const columnConfig = [
     { data: "apellidos" },
     { data: "telefono" },
     { data: "correo" },
-    { data: "horario" },
+    { data: "horaInicio" },
+    { data: "horaFinal" },
     {
       data: "id_rol",
       render: (data, type, row) => {
@@ -209,11 +210,11 @@ const columnDefsConfig = [
     columnDefault[2],
     {
       className: "text-center",
-      targets: [9],
+      targets: [11],
     },
     {
       responsivePriority: 1,
-      targets: [0, 1, 9],
+      targets: [0, 1, 11],
     },
     {
       responsivePriority: 2,
@@ -285,7 +286,7 @@ const columnDefsConfig = [
     },
     {
       responsivePriority: 1,
-      targets: [0, 6  ],
+      targets: [0, 6],
     },
     {
       responsivePriority: 2,

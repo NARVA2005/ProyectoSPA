@@ -439,7 +439,7 @@ try {
                                     <div class="justify">
                                         <div class="row align-items-center">
                                             <div class="col-lg-2 col-12 text-center" style="margin-top:2% !important">
-                                                <h5 class="card-title">Productos</h5>
+                                                <h5 class="card-title">Citas</h5>
                                             </div>
                                             <div class="col-lg-4 col-12" style="margin-top:2% !important">
 
@@ -447,7 +447,7 @@ try {
                                                     <input type="number" class="form-control"
                                                         placeholder="Buscar por id" data-bs-toggle="tooltip"
                                                         data-bs-placement="bottom" data-bs-title="Buscar por id"
-                                                        id="idSearchAppointment">
+                                                        id="idSearchquotes">
                                                     <span class="input-group-text" data-bs-toggle="tooltip"
                                                         data-bs-placement="top" data-bs-title="Buscar cita"
                                                         style="cursor:pointer" onclick="handleSearch(1,4)"><i
@@ -457,7 +457,7 @@ try {
 
                                             </div>
                                             <div class="col-lg-1 col-12 d-flex justify-content-center"
-                                                style="margin-top:2% !important">
+                                                style="margin-top:2% !important" onclick="handleListAll(1,4)">
                                                 <i class="fa-solid fa-list-ul listAll" data-bs-toggle="tooltip"
                                                     data-bs-placement="top" data-bs-title="Listar todo"
                                                     data-bs-custom-class="custom-tooltip-excel"></i>
@@ -1292,12 +1292,16 @@ try {
                 <div class="modal-body">
 
                     <form action="">
+                             <!-- MENSAJE DE ALERTA -->
+                             <div id="alertMessage" class="alertContainer">
+
+</div>
                         <div class="row mx-auto mb-3">
                             <div class="col">
                                 <div class="form-floating">
                                     <div class="form-floating">
-                                        <input type="number" class="form-control" name="id" placeholder="">
-                                        <label for="id" class="form-label">Id cliente</label>
+                                        <input type="number" class="form-control" name="id" placeholder="" id="id">
+                                        <label for="id" class="form-label">Identificación cliente</label>
                                     </div>
                                 </div>
                             </div>
@@ -1305,7 +1309,7 @@ try {
                             <div class="col">
                                 <div class="form-floating">
                                     <div class="form-floating">
-                                        <input type="datetime-local" class="form-control" name="fecha" placeholder="">
+                                        <input type="datetime-local" class="form-control" name="fecha" id="datetime" placeholder="" >
                                         <label for="date" class="form-label">Fecha</label>
                                     </div>
                                 </div>
@@ -1316,7 +1320,7 @@ try {
                         <div class="row mx-auto mb-3">
                             <div class="col">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" name="name" placeholder="">
+                                    <input type="text" class="form-control" name="name" placeholder="" id="name" readonly>
                                     <label for="name" class="form-label">Cliente</label>
                                 </div>
                             </div>
@@ -1338,7 +1342,7 @@ try {
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     <button type="button" class="btn btn-success"
-                        onclick="handleRequest(this,4,'post','put')">Guardar</button>
+                        onclick="handleRequest(this,4,'post','post')">Guardar</button>
                 </div>
             </div>
         </div>
@@ -1367,7 +1371,7 @@ try {
                             <div class="col">
                                 <div class="form-floating">
                                     <div class="form-floating">
-                                        <input type="datetime-local" class="form-control" name="fecha" placeholder="">
+                                        <input type="datetime-local" class="form-control" name="fecha" id="datetime" placeholder="">
                                         <label for="date" class="form-label">Fecha</label>
                                     </div>
                                 </div>
