@@ -1494,23 +1494,27 @@ try {
             </div>
         </div>
     </div>
-    <!-- Edit quote Modal -->
+    <!-- edit quote Modal -->
     <div class="modal fade" id="editModalquote" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="editModalQuotelabel">Editar cita</h1>
+                    <h1 class="modal-title fs-5" id="editModalQuotelabel">editar cita</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
 
                     <form action="">
+                             <!-- MENSAJE DE ALERTA -->
+                             <div id="alertMessageEdit" class="alertContainer">
+
+</div>
                         <div class="row mx-auto mb-3">
                             <div class="col">
                                 <div class="form-floating">
                                     <div class="form-floating">
-                                        <input type="number" class="form-control" name="id" placeholder="" readonly>
-                                        <label for="id" class="form-label">Id</label>
+                                        <input type="number" class="form-control" name="id" placeholder="" id="id">
+                                        <label for="id" class="form-label">Identificación cliente</label>
                                     </div>
                                 </div>
                             </div>
@@ -1518,7 +1522,7 @@ try {
                             <div class="col">
                                 <div class="form-floating">
                                     <div class="form-floating">
-                                        <input type="datetime-local" class="form-control" name="fecha" id="datetime" placeholder="">
+                                        <input type="datetime-local" class="form-control" name="fecha" id="dateTimeEdit" placeholder="" >
                                         <label for="date" class="form-label">Fecha</label>
                                     </div>
                                 </div>
@@ -1529,7 +1533,7 @@ try {
                         <div class="row mx-auto mb-3">
                             <div class="col">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" name="name" placeholder="" readonly>
+                                    <input type="text" class="form-control" name="name" placeholder="" id="name" readonly>
                                     <label for="name" class="form-label">Cliente</label>
                                 </div>
                             </div>
@@ -1551,7 +1555,7 @@ try {
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     <button type="button" class="btn btn-success"
-                        onclick="handleRequest(this,4,'post','put')">Guardar</button>
+                        onclick="handleRequest(this,4,'post','post')">Guardar</button>
                 </div>
             </div>
         </div>

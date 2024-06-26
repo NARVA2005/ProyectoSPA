@@ -316,3 +316,43 @@ $(document).ready(function() {
   // Cargar fechas disponibles y deshabilitadas al cargar la página
   loadAvailableDateTime();
 });
+
+const alertaMensajeEdit=document.getElementById("alertMessageEdit");
+$(document).ready(function() {
+  // Función para cargar fechas disponibles y deshabilitadas
+  const loadAvailableDateTime = () => {
+      $.ajax({
+          url: '../controller/Data/validateDateTime.php',
+          method: 'GET',
+          success: function(data) {
+              const availableDateTime = JSON.parse(data);
+              const minDate = availableDateTime.minDate;
+              const disabledDates = availableDateTime.disabledDates;
+
+              // configurar el min para el input de datetime-local
+              $("#dateTimeEdit").attr("min", minDate);
+
+              // Change para disparar algun cambio
+              $("#dateTimeEdit").on("change", function() {
+                  const selectedDateTime = $(this).val(); // Obtener fecha y hora seleccionada
+                  console.log('Fecha y hora seleccionadas:', selectedDateTime);
+
+                  // Verificar si la fecha y hora están deshabilitadas en el controlador
+                  if (disabledDates.includes(selectedDateTime)) {
+                    alertaMensaje.innerHTML = `<div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    La fecha y hora seleccionadas no están disponibles.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>`;
+                      $(this).val("");
+                  }
+              });
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+              console.error("Error en la solicitud AJAX:", textStatus, errorThrown);
+          }
+      });
+  };
+
+  // Cargar fechas disponibles y deshabilitadas al cargar la página
+  loadAvailableDateTime();
+});
