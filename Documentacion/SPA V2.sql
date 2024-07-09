@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-06-2024 a las 17:54:27
+-- Tiempo de generación: 09-07-2024 a las 13:41:03
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -18,21 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `bd_spa`
+-- Base de datos: `spa`
 --
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `asignacion_servicio`
---
-
-CREATE TABLE `asignacion_servicio` (
-  `id` bigint(20) NOT NULL,
-  `horario` varchar(45) NOT NULL,
-  `id_usuario` bigint(20) NOT NULL,
-  `id_servicio` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -129,18 +116,6 @@ CREATE TABLE `factura` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `preferencia`
---
-
-CREATE TABLE `preferencia` (
-  `id` bigint(20) NOT NULL,
-  `id_cliente` bigint(20) NOT NULL,
-  `id_servicio` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `producto`
 --
 
@@ -192,7 +167,7 @@ CREATE TABLE `rol` (
 
 INSERT INTO `rol` (`id`, `nombre`) VALUES
 (1, 'Administrador'),
-(2, 'Secretaria'),
+(2, 'Secretaria');
 
 -- --------------------------------------------------------
 
@@ -279,14 +254,6 @@ INSERT INTO `usuario` (`id`, `nombres`, `apellidos`, `telefono`, `correo`, `pass
 --
 
 --
--- Indices de la tabla `asignacion_servicio`
---
-ALTER TABLE `asignacion_servicio`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_asignacion_usuario_idx` (`id_usuario`),
-  ADD KEY `fk_asignacion_servicio_idx` (`id_servicio`);
-
---
 -- Indices de la tabla `cita`
 --
 ALTER TABLE `cita`
@@ -322,14 +289,6 @@ ALTER TABLE `detalle_sesion`
 ALTER TABLE `factura`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_Facturacion_Empleados1_idx` (`id_usuario`);
-
---
--- Indices de la tabla `preferencia`
---
-ALTER TABLE `preferencia`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_Preferencias_Clientes_idx` (`id_cliente`),
-  ADD KEY `fk_Preferencias_Servicios1_idx` (`id_servicio`);
 
 --
 -- Indices de la tabla `producto`
@@ -377,12 +336,6 @@ ALTER TABLE `usuario`
 --
 
 --
--- AUTO_INCREMENT de la tabla `asignacion_servicio`
---
-ALTER TABLE `asignacion_servicio`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `cita`
 --
 ALTER TABLE `cita`
@@ -407,12 +360,6 @@ ALTER TABLE `factura`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `preferencia`
---
-ALTER TABLE `preferencia`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
@@ -433,13 +380,6 @@ ALTER TABLE `servicio`
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `asignacion_servicio`
---
-ALTER TABLE `asignacion_servicio`
-  ADD CONSTRAINT `fk_AsignacionesServicios_Servicios1` FOREIGN KEY (`id_servicio`) REFERENCES `servicio` (`id`),
-  ADD CONSTRAINT `fk_AsignacionesServicios_Terapeutas1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`);
 
 --
 -- Filtros para la tabla `cita`
@@ -467,13 +407,6 @@ ALTER TABLE `detalle_sesion`
 --
 ALTER TABLE `factura`
   ADD CONSTRAINT `fk_Facturacion_Usuarios1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`);
-
---
--- Filtros para la tabla `preferencia`
---
-ALTER TABLE `preferencia`
-  ADD CONSTRAINT `fk_Preferencias_Clientes` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id`),
-  ADD CONSTRAINT `fk_Preferencias_Servicios1` FOREIGN KEY (`id_servicio`) REFERENCES `servicio` (`id`);
 
 --
 -- Filtros para la tabla `registro_sesion`

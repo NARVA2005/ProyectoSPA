@@ -62,7 +62,7 @@ try {
         <ul class="navbar-nav bg-sidebar sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../../">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -74,7 +74,7 @@ try {
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="#">
                     <i class="fa-solid fa-network-wired"></i>
                     <span>Panel de control</span></a>
             </li>
@@ -163,32 +163,11 @@ try {
                 Facturación
             </div>
             <li class="nav-item">
-                <a class="nav-link collapsed cursor-link-a" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                <a class="nav-link collapsed cursor-link-a" href="./facturar.php"
                     aria-expanded="false" aria-controls="collapseTwo">
                     <i class="fa-solid fa-file-invoice"></i>
                     <span>Facturar</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionSidebar"
-                    style="">
-                    <div class="bg-white py-2 collapse-inner rounded navitem-container">
-                        <h6 class="collapse-header">Facturar</h6>
-                        <div class="collapse-item d-flex align-items-center p-0 justify-content-between">
-                            <i class="fa-solid fa-caret-right fa-sm ms-1"></i>
-                            <a class="collapse-item cursor-link-a">Citas</a>
-                            <i class="fa-regular fa-calendar-days fa-sm me-1"></i>
-                        </div>
-
-                        <div class="collapse-item d-flex align-items-center p-0 justify-content-between">
-                            <i class="fa-solid fa-caret-right fa-sm ms-1"></i>
-                            <a class="collapse-item cursor-link-a">Productos</a>
-                            <i class="fa-brands fa-product-hunt fa-sm me-1"></i>
-                        </div>
-                        <div class="collapse-item d-flex align-items-center p-0 justify-content-between">
-                            <i class="fa-solid fa-caret-right fa-sm ms-1"></i>
-                            <a class="collapse-item cursor-link-a">Servicios</a>
-                            <i class="fa-solid fa-bell-concierge fa-sm me-1"></i>
-                        </div>
-                    </div>
             </li>
 
             <!-- Divider -->
@@ -677,12 +656,14 @@ try {
                                 </div>
 
                                 <div class="col m-2 card shadow">
-                                    <div class="card-body text-start">
+                                 
                                         <hr>
-                                        <div class="table-responsive">
+                                        <div class="table-responsive" >
+                                        <table id="tabla" class="table table-bordered datatable" width="100%"
+                                        cellspacing="0">
 
-                                        </div>
-                                    </div>
+                                        </table></div>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -1824,6 +1805,7 @@ try {
     <script src="../assets/js/controlpanel/pages.js"></script>
     <script src="../assets/js/datatable/datatablesconfig.js"></script>
     <script src="../assets/js/datatable/globalvars.js"></script>
+    <script src="../assets/js/datatable/AutoTabla.js"></script>
     <script src="../assets/js/controlpanel/main.js"></script>
 
     <script src="../assets/js/apexcharts/apexcharts.js"></script>
