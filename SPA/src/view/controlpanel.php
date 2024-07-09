@@ -143,14 +143,14 @@ try {
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a id="recargar" class="nav-link cursor-link-a" onclick="pageChange(5)">
+                <a id="recargar" class="nav-link cursor-link-a" onclick="pageChange(6)">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Gráficas</span></a>
             </li>
 
 
             <li class="nav-item">
-                <a id="recargar" class="nav-link cursor-link-a" onclick="pageChange(6)">
+                <a id="recargar" class="nav-link cursor-link-a" onclick="pageChange(7)">
                     <i class="fas fa-fw fa-layer-group"></i>
                     <span>Informes</span></a>
             </li>
@@ -678,26 +678,9 @@ try {
 
                                 <div class="col m-2 card shadow">
                                     <div class="card-body text-start">
-
                                         <hr>
-
                                         <div class="table-responsive">
-                                            <table id="datatable6" class="table table-bordered" width="100%"
-                                                cellspacing="0">
-                                                <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Id</th>
-                                                        <th>Fecha</th>
-                                                        <th>Cliente</th>
-                                                        <th>Servicio</th>
-                                                        <th>Estado</th>
-                                                        <th>Acciones</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                </tbody>
-                                            </table>
+
                                         </div>
                                     </div>
                                 </div>

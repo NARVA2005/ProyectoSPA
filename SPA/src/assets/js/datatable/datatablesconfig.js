@@ -307,8 +307,71 @@ const returnDatatableOption = (condition, URL) => {
         "#modalCita"
       ),
     },
+    {
+      columns: [{ data: "Servicio" }, { data: "Total" }],
+      titles: {
+        pdf: "INGRESOS POR PERIODO",
+        excel: "INGRESOS POR PERIODO",
+        print: "INGRESOS POR PERIODO",
+      },
+      filenames: {
+        pdf: `INGRESOS_PERIODO..${obtainFilaName()}`,
+        excel: `INGRESOS_PERIODO..${obtainFilaName()}`,
+        print: `INGRESOS_PERIODO..${obtainFilaName()}`,
+      },
+      exportColumns: [0, 1],
+    },
+    {
+      columns: [{ data: "Servicio" }, { data: "Total" }],
+      titles: {
+        pdf: "INGRESOS POR PERIODO",
+        excel: "INGRESOS POR PERIODO",
+        print: "INGRESOS POR PERIODO",
+      },
+      filenames: {
+        pdf: `INGRESOS_PERIODO..${obtainFilaName()}`,
+        excel: `INGRESOS_PERIODO..${obtainFilaName()}`,
+        print: `INGRESOS_PERIODO..${obtainFilaName()}`,
+      },
+      exportColumns: [1, 2],
+    },
+    {
+      columns: [
+        { data: "id_cliente" },
+        { data: "nombres" },
+        { data: "apellidos" },
+        { data: "nombre" },
+        { data: "Frecuencia del servicio" },
+      ],
+      titles: {
+        pdf: "CLIENTES FRECUENTES",
+        excel: "CLIENTES FRECUENTES",
+        print: "CLIENTES FRECUENTES",
+      },
+      filenames: {
+        pdf: `CLIENTES_FRECUENTES..${obtainFilaName()}`,
+        excel: `CLIENTES_FRECUENTES..${obtainFilaName()}`,
+        print: `CLIENTES_FRECUENTES..${obtainFilaName()}`,
+      },
+      exportColumns: [0, 1, 2, 3, 4],
+    },
+    {
+      columns: [{ data: "Servicio" }, { data: "Total" }],
+      titles: {
+        pdf: "INGRESOS POR PERIODO",
+        excel: "INGRESOS POR PERIODO",
+        print: "INGRESOS POR PERIODO",
+      },
+      filenames: {
+        pdf: `INGRESOS_PERIODO..${obtainFilaName()}`,
+        excel: `INGRESOS_PERIODO..${obtainFilaName()}`,
+        print: `INGRESOS_PERIODO..${obtainFilaName()}`,
+      },
+      exportColumns: [1, 2],
+    },
   ];
-  const numberFormat = condition == 0 || condition == 1 ? 1 : 3;
+  const numberFormat =
+    condition == 0 || condition == 1 || condition == 8 ? 1 : 3;
   const config = configOptions[condition];
   datatableOptions.columns = config.columns;
   datatableOptions.ajax.url = URL;
@@ -321,7 +384,35 @@ const returnDatatableOption = (condition, URL) => {
     ),
     config.customButton,
   ];
-  datatableOptions.columnDefs = columnDefsConfig[condition];
+  if (condition < 6) {
+    datatableOptions.columnDefs = columnDefsConfig[condition];
+  } else {
+    if (condition == 6) {
+      datatableOptions.columnDefs = [
+        { responsivePriority: 1, targets: [0] },
+        { responsivePriority: 2, targets: [1] },
+      ];
+    } else if (condition == 7) {
+      datatableOptions.columnDefs = [
+        columnDefault.textStart,
+        { responsivePriority: 1, targets: [0, 1] },
+        { responsivePriority: 2, targets: [2] },
+      ];
+    } else if (condition == 8) {
+      datatableOptions.columnDefs = [
+        { className: "text-start", targets: 0 },
+        { responsivePriority: 1, targets: [0, 1] },
+        { responsivePriority: 2, targets: [2] },
+      ];
+    } else if (condition == 9) {
+      datatableOptions.columnDefs = [
+        columnDefault.textStart,
+        { responsivePriority: 1, targets: [0, 1] },
+        { responsivePriority: 2, targets: [2] },
+      ];
+    }
+  }
+  console.log(datatableOptions);
   return datatableOptions;
 };
 
