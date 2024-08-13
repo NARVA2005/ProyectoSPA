@@ -36,6 +36,7 @@ const openModal = (target) => {
 let globalModal = "";
 
 const idSearchUser = document.querySelector("#idSearchUser");
+const idSearchTherapist = document.querySelector("#idSearchTherapist");
 const idSearchClient = document.querySelector("#idSearchClient");
 const idSearchService = document.querySelector("#idSearchService");
 const idSearchProduct = document.querySelector("#idSearchProduct");
@@ -50,6 +51,7 @@ const handleListAll = (target, action) => {
   const carpets = ["Administrador", "Data"];
   const actionTarget = [
     "usersinfo.php",
+    "therapistsinfo.php",
     "clientsinfo.php",
     "servicesinfo.php",
     "productsinfo.php",
@@ -57,6 +59,7 @@ const handleListAll = (target, action) => {
   ];
   const actionParams = [
     `rol=${filterUser.value}&all=true`,
+    "all=true",
     "all=true",
     "all=true",
     "all=true",
@@ -77,6 +80,7 @@ const handleSearch = (target, action) => {
   const carpets = ["Administrador", "Data"];
   const actionTarget = [
     "usersinfo.php",
+    "therapistsinfo.php",
     "clientsinfo.php",
     "servicesinfo.php",
     "productsinfo.php",
@@ -84,6 +88,7 @@ const handleSearch = (target, action) => {
   ];
   const actionParams = [
     idSearchUser.value,
+    idSearchTherapist.value,
     idSearchClient.value,
     idSearchService.value,
     idSearchProduct.value,
@@ -104,6 +109,7 @@ const handleRequest = (element, target, method, action) => {
   const urls = {
     post: [
       "../controller/Administrador/createuser.php",
+      "../controller/Administrador/createtherapist.php",
       "../controller/Create/createclient.php",
       "../controller/Create/createservice.php",
       "../controller/Create/createproduct.php",
@@ -111,6 +117,7 @@ const handleRequest = (element, target, method, action) => {
     ],
     put: [
       "../controller/Administrador/edituser.php",
+      "../controller/Administrador/edittherapist.php",
       "../controller/Edit/editclient.php",
       "../controller/Edit/editservice.php",
       "../controller/Edit/editproduct.php",
@@ -118,6 +125,7 @@ const handleRequest = (element, target, method, action) => {
     ],
     status: [
       "../controller/Administrador/statususer.php",
+      "../controller/Administrador/statustherapist.php",
       "../controller/Status/statusclient.php",
       "../controller/Status/statusservice.php",
       "../controller/Status/statusproduct.php",
@@ -127,6 +135,7 @@ const handleRequest = (element, target, method, action) => {
 
   const successUrls = [
     "../controller/Administrador/usersinfo.php",
+    "../controller/Administrador/therapistsinfo.php",
     "../controller/Data/clientsinfo.php",
     "../controller/Data/servicesinfo.php",
     "../controller/Data/productsinfo.php",
@@ -161,6 +170,7 @@ const handleRequest = (element, target, method, action) => {
 const handleModal = (element, target, action) => {
   const modals = [
     ["#editModalUsuario", "#statusModalUsuario"],
+    ["#editModalTerapeuta", "#statusModalTerapeuta"],
     ["#editModalCliente", "#statusModalCliente"],
     ["#editModalServicio", "#statusModalServicio"],
     ["#editModalProducto", "#statusModalProducto"],
@@ -217,16 +227,24 @@ const fillData = (modal, data) => {
   element.querySelectorAll("select").forEach((e) => {
     for (let i = 0; i < e.options.length; i++) {
       for (let j = 0; j < data.length; j++) {
-        if (
-          e.options[i].value.toUpperCase() == data[j].toUpperCase() ||
-          e.options[i].text.toUpperCase() == data[j].toUpperCase()
-        ) {
+        const valueOption = e.options[i].value.toUpperCase();
+        const textOption = e.options[i].text.toUpperCase();
+        let dataValue = data[j].toUpperCase();
+        const nextIndex = j + 1 < e.options.length ? j + 1 : j;
+        dataValue =
+          modal != "#editModalUsuario" && modal != "#editModalTerapeuta"
+            ? data[j].toUpperCase()
+            : data[j].toUpperCase().substring(0, 2) +
+              "-" +
+              data[nextIndex].toUpperCase().substring(0, 2);
+
+        if (valueOption == dataValue || textOption == dataValue) {
           e.selectedIndex = i;
         }
       }
     }
   });
-  modal == "#editModalUsuario"
+  modal == "#editModalUsuario" || modal == "#editModalTerapeuta"
     ? (element.querySelectorAll("input")[5].value = "")
     : "";
   openModal(modal);
@@ -249,108 +267,69 @@ const fillSelect = () => {
 fillSelect();
 
 //Llenar el campo de nombre con el id proporcionado
-const search =(id)=>{
-if(id != ""){
-  $.ajax({
-    url: '../controller/Data/search.php',
-    method: 'POST',
-    data: { id: id },
-    success: function(data) {
+const search = (id) => {
+  if (id != "") {
+    $.ajax({
+      url: "../controller/Data/search.php",
+      method: "POST",
+      data: { id: id },
+      success: function (data) {
         nameUpdate(data);
-    },
-    error: function(jqXHR, textStatus, errorThrown) {
-      console.error("Error en la solicitud AJAX:", textStatus, errorThrown);
-  }
-});
-}else{
-  nameUpdate("");
-}
-}
-const nameUpdate=(name)=>{
-  $("#name").val(name); 
-};
-  // Inicializar el evento change para que al cambiar un valor dentro de un input, llene el nombre que esta en la base de datos
-  $(document).ready(function() {
-    $("#id").on("change",function() {
-        const id = $(this).val();
-        search(id);
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        console.error("Error en la solicitud AJAX:", textStatus, errorThrown);
+      },
     });
+  } else {
+    nameUpdate("");
+  }
+};
+const nameUpdate = (name) => {
+  $("#name").val(name);
+};
+// Inicializar el evento change para que al cambiar un valor dentro de un input, llene el nombre que esta en la base de datos
+$(document).ready(function () {
+  $("#id").on("change", function () {
+    const id = $(this).val();
+    search(id);
+  });
 });
 
-const alertaMensaje=document.getElementById("alertMessage");
-$(document).ready(function() {
+const alertaMensaje = document.getElementById("alertMessage");
+$(document).ready(function () {
   // Función para cargar fechas disponibles y deshabilitadas
   const loadAvailableDateTime = () => {
-      $.ajax({
-          url: '../controller/Data/validateDateTime.php',
-          method: 'GET',
-          success: function(data) {
-              const availableDateTime = JSON.parse(data);
-              const minDate = availableDateTime.minDate;
-              const disabledDates = availableDateTime.disabledDates;
+    $.ajax({
+      url: "../controller/Data/validateDateTime.php",
+      method: "GET",
+      success: function (data) {
+        const availableDateTime = JSON.parse(data);
+        const minDate = availableDateTime.minDate;
+        const disabledDates = availableDateTime.disabledDates;
 
-              // configurar el min para el input de datetime-local
-              $("#datetime").attr("min", minDate);
+        // configurar el min para el input de datetime-local
+        document.querySelectorAll(".datetime").forEach((e) => {
+          e.setAttribute("min", minDate);
+        });
+        // Change para disparar algun cambio
+        $("#datetime").on("change", function () {
+          const selectedDateTime = $(this).val(); // Obtener fecha y hora seleccionada
+          console.log("Fecha y hora seleccionadas:", selectedDateTime);
 
-              // Change para disparar algun cambio
-              $("#datetime").on("change", function() {
-                  const selectedDateTime = $(this).val(); // Obtener fecha y hora seleccionada
-                  console.log('Fecha y hora seleccionadas:', selectedDateTime);
-
-                  // Verificar si la fecha y hora están deshabilitadas en el controlador
-                  if (disabledDates.includes(selectedDateTime)) {
-                    alertaMensaje.innerHTML = `<div class="alert alert-warning alert-dismissible fade show" role="alert">
+          // Verificar si la fecha y hora están deshabilitadas en el controlador
+          if (disabledDates.includes(selectedDateTime)) {
+            alertaMensaje.innerHTML = `<div class="alert alert-warning alert-dismissible fade show" role="alert">
                     La fecha y hora seleccionadas no están disponibles.
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>`;
-                      $(this).val("");
-                  }
-              });
-          },
-          error: function(jqXHR, textStatus, errorThrown) {
-              console.error("Error en la solicitud AJAX:", textStatus, errorThrown);
+            $(this).val("");
           }
-      });
-  };
-
-  // Cargar fechas disponibles y deshabilitadas al cargar la página
-  loadAvailableDateTime();
-});
-
-const alertaMensajeEdit=document.getElementById("alertMessageEdit");
-$(document).ready(function() {
-  // Función para cargar fechas disponibles y deshabilitadas
-  const loadAvailableDateTime = () => {
-      $.ajax({
-          url: '../controller/Data/validateDateTime.php',
-          method: 'GET',
-          success: function(data) {
-              const availableDateTime = JSON.parse(data);
-              const minDate = availableDateTime.minDate;
-              const disabledDates = availableDateTime.disabledDates;
-
-              // configurar el min para el input de datetime-local
-              $("#dateTimeEdit").attr("min", minDate);
-
-              // Change para disparar algun cambio
-              $("#dateTimeEdit").on("change", function() {
-                  const selectedDateTime = $(this).val(); // Obtener fecha y hora seleccionada
-                  console.log('Fecha y hora seleccionadas:', selectedDateTime);
-
-                  // Verificar si la fecha y hora están deshabilitadas en el controlador
-                  if (disabledDates.includes(selectedDateTime)) {
-                    alertaMensaje.innerHTML = `<div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    La fecha y hora seleccionadas no están disponibles.
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>`;
-                      $(this).val("");
-                  }
-              });
-          },
-          error: function(jqXHR, textStatus, errorThrown) {
-              console.error("Error en la solicitud AJAX:", textStatus, errorThrown);
-          }
-      });
+        });
+      },
+      error: function (jqXHR, textStatus, errorThrown) {
+        console.error("Error en la solicitud AJAX:", textStatus, errorThrown);
+      },
+    });
   };
 
   // Cargar fechas disponibles y deshabilitadas al cargar la página

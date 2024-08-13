@@ -1,11 +1,13 @@
 alertMessage = document.getElementById("alertMessage");
 
 const login = () => {
+  let rol = document.getElementById("rol").value;
   let user = document.getElementById("user").value;
   let password = document.getElementById("password").value;
 
   if (user.length > 0 && password.length > 0) {
     const frmData = new FormData();
+    frmData.append("rol", rol);
     frmData.append("user", user);
     frmData.append("password", password);
     fetch("../controller/Login/login.php", {

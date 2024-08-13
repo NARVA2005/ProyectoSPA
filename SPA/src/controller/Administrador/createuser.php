@@ -2,6 +2,12 @@
 session_start();
 require_once '../../config/mysql.php';
 $mysql = new Mysql;
+$rol = $_SESSION['rol'] ?? 0;
+if ($rol != 1) {
+    echo '{"data":"Debes ser administrador para realizar esta acción","response":"error"}';
+    exit;
+}
+
 try{
 if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['password']) &&
     isset($_SESSION['login'])){
@@ -37,7 +43,20 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
         $schedule = strtoupper(trim($_POST['schedule']));
         $rol = trim($_POST['rol']);
         
-    
+        if(strlen($schedule) != 5){
+            echo '{"data":"Horario no válido","response":"error"}';
+            exit;
+        }
+        $startDate = substr($schedule,0,2);
+        $endDate = substr($schedule,3,4);
+
+        if($startDate > $endDate || $startDate < 0 || $startDate >= 24 ||$endDate < 0 || $endDate >= 24){
+            echo '{"data":"Horario no válido","response":"error"}';
+            exit;
+        }
+
+        $startDate .= ":00:00";
+        $endDate .= ":00:00";
 
         $mysql-> conectar();
         $stmt = $mysql -> consulta("SELECT COUNT(id) FROM usuario where id = ?",[$id]);
@@ -52,7 +71,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
             echo '{"data":"El correo ya existe","response":"error"}';
             exit;
         }
-        $mysql -> consulta("INSERT INTO usuario VALUES(?,?,?,?,?,?,?,?,?)",[$id,$names,$lastname,$phone,$email,$password,$schedule,$rol,1]);
+        $mysql -> consulta("INSERT INTO usuario VALUES(?,?,?,?,?,?,?,?,?,?)",[$id,$names,$lastname,$phone,$email,$password,$rol,$startDate,$endDate,1]);
         echo '{"data":"Usuario creado con éxito","response":"success"}';
         exit;
     }

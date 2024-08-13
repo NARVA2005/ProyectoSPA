@@ -6,9 +6,17 @@ const pageChange = (n) => {
   document.querySelector(".page-" + n).classList.remove("page-hide");
   document.querySelector(".page-" + n).classList.add("page-show");
   resetTables();
-  const carpets = ["Administrador", "Data", "Data", "Data", "Data"];
+  const carpets = [
+    "Administrador",
+    "Administrador",
+    "Data",
+    "Data",
+    "Data",
+    "Data",
+  ];
   const actionTarget = [
     "usersinfo.php",
+    "therapistsinfo.php",
     "clientsinfo.php",
     "servicesinfo.php",
     "productsinfo.php",

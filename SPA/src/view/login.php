@@ -3,11 +3,18 @@ session_start();
 require_once '../config/mysql.php';
 $mysql = new Mysql;
 try{
+
 if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['password']) &&
     isset($_SESSION['login'])){
     $id = $_SESSION['id'];
     $mysql->conectar();
-    $stmt = $mysql->consulta("SELECT estado FROM usuario where id = ?",[$id]);
+    $rol = $_SESSION['rol'] ?? '';
+    switch ($rol) {
+        case '':
+            break;
+        default:
+    $table = $rol == 1 ?'usuario':'terapeuta';
+    $stmt = $mysql->consulta("SELECT estado FROM $table where id = ?",[$id]);
     $result = $stmt->fetch(PDO::FETCH_NUM);
     
     if (count($result) == 1){
@@ -19,6 +26,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
     else{
     header("Location: ./controlpanel.php");
     exit;    
+    }
     }
     }
     }
@@ -68,6 +76,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
                             </div>
 
                             <!--- FIN MENSAJE ALERTA --->
+                            <div class="form-floating mb-3">
+                                <select id="rol" class="form-select">
+                                    <option value="1">Usuario</option>
+                                    <option value="2">Terapeuta</option>
+                                </select>
+                                <label for="user">Selecciona tu rol</label>
+                            </div>
                             <div class="form-floating mb-3">
                                 <input type="user" class="form-control" id="user" placeholder="">
                                 <label for="user">Correo electrónico o identificación</label>

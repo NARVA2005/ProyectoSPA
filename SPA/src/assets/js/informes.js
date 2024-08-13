@@ -16,87 +16,57 @@ opcion.addEventListener("change", function () {
 
 generarInforme.addEventListener("click", function () {
   if (
-    opcion.value == "Ingresos" &&
-    fechaFin.value != "" &&
-    fechaInicio.value != ""
-  ) {
-    {
-      let fechaInicioAdaptada = fechaInicio.value
-      let fechaFinAdaptada = fechaFin.value
-      
-          fetch("../controller/Data/graphsinfo.php?query=ingresos&fechaInicio="+fechaInicioAdaptada+"&fechaFin="+fechaFinAdaptada)
-        .then(function (response) {
-          return response.json();
-        })
-
-        .then(function (data) {
-          console.log(data);
-          mensaje.innerText = ""
-          mensaje.setAttribute("class","")
-          //funcion
-        });
-      
-    }
+    opcion.value == "Ingresos" 
+   
+  ) 
+  
+  {
+   if( fechaFin.value != "" &&
+    fechaInicio.value != ""){
+   
+    let fechaInicioAdaptada = fechaInicio.value
+    let fechaFinAdaptada = fechaFin.value
+    autotabla("../controller/Data/graphsinfo.php?query=ingresos&fechaInicio="+fechaInicioAdaptada+"&fechaFin="+fechaFinAdaptada)
+    mensaje.innerText = ""
+    mensaje.setAttribute("class","")
   }
   else{
     mensaje.innerText = "Seleccione el límite de búsqueda, por favor"
     mensaje.setAttribute("class","bg-warning rounded p-2 m-3  text-white")
   }
+  }
+
+ 
 
   if (
-    opcion.value == "Ocupacion" &&
-    fechaFin.value != "" &&
-    fechaInicio.value != ""
+    opcion.value == "Ocupacion"
+
   ) {
-    {
-      fetch("../controller/Data/graphsinfo.php?query=ocupacion")
-        .then(function (response) {
-          return response.json();
-        })
-
-        .then(function (data) {
-          console.log(data);
-          mensaje.innerText = ""
-          mensaje.setAttribute("class","")
-          //funcion
-        });
-    }
-
+    if(    fechaFin.value != "" &&
+      fechaInicio.value != ""){
+    let fechaInicioAdaptada = fechaInicio.value
+    let fechaFinAdaptada = fechaFin.value
+   autotabla("../controller/Data/graphsinfo.php?query=ocupacion&fechaInicio="+fechaInicioAdaptada+"&fechaFin="+fechaFinAdaptada)
+   mensaje.innerText = ""
+   mensaje.setAttribute("class","")
   }
   else{
     mensaje.innerText = "Seleccione el límite de búsqueda, por favor"
     mensaje.setAttribute("class","bg-warning rounded p-2 m-3 text-white")
   }
+  }
+
 
   if (opcion.value == "Clientes") {
-    fetch("../controller/Data/graphsinfo.php?query=clientes")
-      .then(function (response) {
-        return response.json();
-      })
+   autotabla("../controller/Data/graphsinfo.php?query=clientes")
+   mensaje.innerText = ""
+   mensaje.setAttribute("class","")
 
-      .then(function (data) {
-        console.log(data);
-        mensaje.innerText = ""
-        mensaje.setAttribute("class","")
-      });
   }
 
   if (opcion.value == "Inventario") {
- 
-
-    {fetch("../controller/Data/graphsinfo.php?query=inventario")
-    .then(function (response) {
-      return response.json();
-    })
-  
-    .then(function (data) {
-    console.log(data)
     mensaje.innerText = ""
-    mensaje.setAttribute("class","")
- 
-    })
-    }
-
-
+autotabla("../controller/Data/graphsinfo.php?query=inventario")
+mensaje.setAttribute("class","")
   }
 });

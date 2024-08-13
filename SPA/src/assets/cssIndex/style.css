@@ -2322,7 +2322,7 @@ textarea.form-control {
 .btn {
   display: inline-block;
   font-weight: 400;
-  color: #757575;
+  color: #ffffff;
   text-align: center;
   vertical-align: middle;
   user-select: none;
@@ -6095,7 +6095,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-  background-color: #F9A392 !important;
+  background-color: #ab8dff !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
@@ -6155,7 +6155,7 @@ button.bg-danger:focus {
 }
 
 .bg-light {
-  background-image: linear-gradient(#9400d384, #90aaff);
+  background-color:var(--purple) ;
 }
 
 a.bg-light:hover, a.bg-light:focus,
@@ -6223,7 +6223,7 @@ button.bg-dark:focus {
 }
 
 .border-primary {
-  border-color: #F9A392 !important;
+  border-color: #ab8dff !important;
 }
 
 .border-secondary {
@@ -9265,7 +9265,7 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-  color: #F9A392 !important;
+  color: #1c0068 !important;
 }
 
 a.text-primary:hover, a.text-primary:focus {
@@ -9667,14 +9667,14 @@ h6,
   margin: 0 5px;
   width: 25px;
   height: 25px;
-  background: #FEF1EF;
-  border: 1px solid #F9A392;
+  background: white;
+  border: 1px solid #1c0068;
   transition: .5s;
 }
 
 .testimonial-carousel .owl-dot.active {
   width: 50px;
-  background: #F9A392;
+  background: #1c0068;
 }
 
 .footer p,
@@ -9705,5 +9705,5 @@ h6,
   list-style-type: none;
 }
 .btn-My{
-  background-color: #CAB9FA;
+  background-color: #6633f2;
 }

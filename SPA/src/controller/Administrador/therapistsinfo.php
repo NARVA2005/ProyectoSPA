@@ -29,24 +29,13 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
     else{
         $mysql->conectar();
         $list = "LIMIT 60";
-        $rol = 0;
         if(isset($_GET["all"])){
         $list = "";
         }
-        if(isset($_GET["rol"])){
-        $rol = $_GET["rol"];
-        }
-          switch($rol){
-            case 2:
-            case 3:
-            $stmt = $mysql->consulta("SELECT * FROM usuario where id_rol = ? ".$list,[$rol]);
-            break;
-            default: $stmt = $mysql->consulta("SELECT * FROM usuario ".$list,[]);
-            break;
-        };
+        $stmt = $mysql->consulta("SELECT * FROM terapeuta $list",[]);
         if(isset($_GET["id"])){
          $id = $_GET["id"];
-         $stmt = $mysql->consulta("SELECT * FROM usuario where id = ?",[$id]);
+         $stmt = $mysql->consulta("SELECT * FROM terapeuta where id = ?",[$id]);
         }
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo json_encode($result);

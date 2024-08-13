@@ -15,7 +15,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
     $mysql->conectar();
     $stmt = $mysql->consulta("SELECT estado,id_rol FROM usuario where id = ?",[$id]);
     $result = $stmt->fetch(PDO::FETCH_NUM);
-    
     if (count($result) == 2){
     if($result[0] != 1){
     session_destroy();
@@ -23,33 +22,34 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
     exit;
     }
     if($result[1] != 1){
-    echo "[]";
+    echo '{"data":"Debes ser administrador para realizar esta acción","response":"error"}';
     exit;
     }
     else{
-        $mysql->conectar();
-        $list = "LIMIT 60";
-        $rol = 0;
-        if(isset($_GET["all"])){
-        $list = "";
+        if (!isset($_POST['id'])){
+            echo '{"data":"Datos no válidos","response":"error"}';
+            exit;
         }
-        if(isset($_GET["rol"])){
-        $rol = $_GET["rol"];
+        else if(empty($_POST['id'])){
+            echo '{"data":"Datos no válidos","response":"error"}';
+            exit;
         }
-          switch($rol){
-            case 2:
-            case 3:
-            $stmt = $mysql->consulta("SELECT * FROM usuario where id_rol = ? ".$list,[$rol]);
-            break;
-            default: $stmt = $mysql->consulta("SELECT * FROM usuario ".$list,[]);
-            break;
-        };
-        if(isset($_GET["id"])){
-         $id = $_GET["id"];
-         $stmt = $mysql->consulta("SELECT * FROM usuario where id = ?",[$id]);
+        $id = $_POST['id'];
+
+        $mysql-> conectar();
+        $stmt = $mysql -> consulta("SELECT COUNT(id),estado,password FROM terapeuta where id = ?",[$id]);
+        $result = $stmt->fetch(PDO::FETCH_NUM);
+        if ($result[0] == 0){
+            echo '{"data":"Este terapeuta no existe en la base de datos","response":"error"}';
+            exit;
         }
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        echo json_encode($result);
+        $status = $result[1] == 1 ? 0 : 1;
+        $statusMessage = $result[1] == 1 ? "Inactivo" : "Activo";
+        $password = $result[1] == 1 ? $result[2]: password_hash("sena2024",PASSWORD_DEFAULT);
+
+        $mysql -> consulta("UPDATE terapeuta set estado = ?,password = ? where id = ?",[$status,$password,$id]);
+        echo '{"data":"Estado cambiado exitosamente a '.$statusMessage.'","response":"success"}';
+        exit;
     }
     }
     else{
@@ -67,4 +67,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
 catch(Exception $e){
     echo '{"data":"Algo inesperado ocurrió...","response":"error"}'; 
     exit;
+    
+ 
 }

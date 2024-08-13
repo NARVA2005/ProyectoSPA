@@ -18,24 +18,27 @@ if (isset($_SESSION['id']) && isset($_SESSION['correo']) && isset($_SESSION['pas
     echo '{"data":"Ya hay una sesión iniciada","response":"success"}';
     exit;
 }
-if(!isset($_POST['user']) || !isset($_POST['password'])){
+if(!isset($_POST['rol'],$_POST['user'],$_POST['password'])){
 echo '{"data":"Datos no válidos","response":"error"}';
     exit;
 }
+$rol = $_POST['rol'];
 $user = $_POST['user'];
 $password = $_POST['password'];
+$table = $rol == 1 ? "usuario" : "terapeuta";
 $mysql -> conectar();
 if(is_numeric($user)){
-$stmt = $mysql->consulta("SELECT * FROM usuario where id = ?",[$user]);
+$stmt = $mysql->consulta("SELECT * FROM $table where id = ?",[$user]);
 }
 else{
-$stmt = $mysql->consulta("SELECT * FROM usuario where correo = ?",[$user]);
+$stmt = $mysql->consulta("SELECT * FROM $table where correo = ?",[$user]);
 }
 
 $result = $stmt->fetch(PDO::FETCH_NUM);
 if ($stmt->rowCount() == 1){
+    $status = $rol == 1 ? $result[9] : $result[8];
     if(password_verify($password,$result[5])){
-        if($result[9] != 1){
+        if($status != 1){
         echo '{"data":"Su estado actual es inactivo","response":"error"}';
         exit;
         }
@@ -44,7 +47,7 @@ if ($stmt->rowCount() == 1){
         $_SESSION['apellidos'] = $result[2];
         $_SESSION['correo'] = $result[4];
         $_SESSION['password'] = $result[5];
-        $_SESSION['rol'] = $result[7];
+        $_SESSION['rol'] = $rol == 2 ? $rol : $result[6];
         $_SESSION['login'] = true;
         echo '{"data":"Datos validados correctamente","response":"success"}';
         exit;
